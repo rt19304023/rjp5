@@ -15,7 +15,8 @@
 	体温測定
 	AWSへデータ送信
 	ユーザ登録
-	出勤時間検索
+	自分の出勤時間確認
+	経理部による社員の出勤時間確認
 	管理者によるユーザ追加、変更削除機能
 
 Sequence定義
@@ -30,20 +31,23 @@ Table定義
 	depertmentcode VARCHAR2(4) PRIMARY KEY//部署名
 	departmentname VARCHAR2(10) NOT NULL UNICUE//部署番号
 
-	UserType
-	code PRIMARY KEY//役職のコード
-	userposition NOT NULL//役職
+	AuthorityType
+	code NUMBER(1) PRIMARY KEY//権限コード
+	authoritytype VARCHAR2(6) NOT NULL//権限名
 
 	UserTable
 	userid NUMBER(7) PRIMARY KEY//社員番号みたいなもの
 	username VARCHAR2(30) NOT NULL//名前
-	pass VARCHAR2(20) NOT NULL//パスワード
+	pass VARCHAR2(20) NOT NULL CHECK(LENGTH(pass) >= 8)//パスワード
 	//スキャンできる内容によって変更(以下の2項目)
 	cardtype VARCHAR2(?)//icカードの種類
 	cardid VARCHAR2(?)//icカード番号
+	
+	UserDepertment
+	userid NUMBER(7) PRIMARY KEY REFERENCESE UserTable(userid)
 	depertmentcode VARCHAR2(4) NOT NULL REFERENCESE department(depertmentcode)//部署番号
 	departmentname VARCHAR2(10) NOT NULL REFERENCESE department(departmentname)//部署名
-	usertype REFERENCESE usertype(code) NOT NULL//役職のコード
+	usertype NUMBER(1) NOT NULL REFERENCESE AuthorityType(code) //権限のコード
 
 	WorkTable
 	userid NUMBER(7) PRIMARY KEY REFERENCESE usertable(userid)//社員番号
