@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>MyProjectName</name>
+	<name>rjp5</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -26,8 +26,4 @@
 			</arguments>
 		</buildCommand>
 	</buildSpec>
-	<natures>
-		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
-		<nature>org.eclipse.jdt.core.javanature</nature>
-	</natures>
 </projectDescription>
