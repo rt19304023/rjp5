@@ -26,6 +26,9 @@ Sequence定義
 	MINVALUE 1000
 	MAXVALUE 9999999
 
+
+
+
 Table定義
 	department//部署表
 	depertmentcode VARCHAR2(4) PRIMARY KEY//部署名
