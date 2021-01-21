@@ -26,6 +26,9 @@ Sequence定義
 	MINVALUE 1000
 	MAXVALUE 9999999
 
+
+
+
 Table定義
 	department//部署表
 	depertmentcode VARCHAR2(4) PRIMARY KEY//部署名
@@ -42,13 +45,15 @@ Table定義
 	//スキャンできる内容によって変更(以下の2項目)
 	cardtype VARCHAR2(?)//icカードの種類
 	cardid VARCHAR2(?)//icカード番号
+	usertype NUMBER(1) NOT NULL REFERENCESE AuthorityType(code) //権限のコード
+
 
 
 	UserDepertment
 	userid NUMBER(7) PRIMARY KEY REFERENCESE UserTable(userid)
 	depertmentcode VARCHAR2(4) NOT NULL REFERENCESE department(depertmentcode)//部署番号
 	departmentname VARCHAR2(10) NOT NULL REFERENCESE department(departmentname)//部署名
-	usertype NUMBER(1) NOT NULL REFERENCESE AuthorityType(code) //権限のコード
+	
 
 	WorkTable
 	userid NUMBER(7) PRIMARY KEY REFERENCESE usertable(userid)//社員番号
