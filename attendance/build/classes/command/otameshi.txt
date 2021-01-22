@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+ゴンザレス
+=======
+aaaaaaaaaaaaaaaa
+>>>>>>> branch 'master' of https://github.com/matsumatsumatsumatsu/practice
