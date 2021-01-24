@@ -6,4 +6,10 @@ public class OraDeleteEmployeeDao implements DeleteEmployeeDao {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
+	@Override
+	public void employeeDelete(String employeeId) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
 }
