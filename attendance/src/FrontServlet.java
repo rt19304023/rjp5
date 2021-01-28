@@ -13,7 +13,6 @@ import controller.ControllerFactory;
 public class FrontServlet extends javax.servlet.http.HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		// doPostを呼び出す
 		doPost(req, res);
 
 	}
