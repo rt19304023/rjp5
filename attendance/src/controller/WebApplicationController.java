@@ -20,6 +20,7 @@ public class WebApplicationController implements ApplicationController {
         reqc.setRequest(request);
         return reqc;
     }
+    
 
     public ResponseContext handleRequest(RequestContext reqc){
         AbstractCommand command = (AbstractCommand) CommandFactory.getCommand(reqc);
