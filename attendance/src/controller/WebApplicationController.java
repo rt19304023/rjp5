@@ -16,7 +16,7 @@ import exception.ApplicationException;
 
 public class WebApplicationController implements ApplicationController {
     public RequestContext getRequest(Object request){
-        RequestContext reqc = (RequestContext) ContextFactory.getContext("webreq");
+        RequestContext reqc = (RequestContext)ContextFactory.getContext("webreq");
         reqc.setRequest(request);
         return reqc;
     }
