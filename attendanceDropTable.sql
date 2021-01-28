@@ -1,2 +1,0 @@
-
-DROP TABLE authority_type CASCADE CONSTRAINTS;
