@@ -19,6 +19,6 @@ public abstract class AbstractCommand {
 		return reqContext;
 	}
 
-	public abstract ResponseContext execute(RequestContext req);
+	public abstract ResponseContext execute(ResponseContext res);
 
 }

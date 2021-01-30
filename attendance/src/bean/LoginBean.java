@@ -7,6 +7,7 @@ public class LoginBean implements Serializable {
 	private String employeeId;
 	private String name;
 	private String userType;
+	private String pass;
 
 	public LoginBean() {
 		// TODO 自動生成されたコンストラクター・スタブ
@@ -34,6 +35,14 @@ public class LoginBean implements Serializable {
 
 	public void setUserType(String userType) {
 		this.userType = userType;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 }

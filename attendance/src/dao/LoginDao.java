@@ -1,9 +1,9 @@
 package dao;
 
-import java.util.ArrayList;
+import bean.LoginBean;
 
 public interface LoginDao {
 
-	public ArrayList loginDataSelect(String name,String pass);
+	public LoginBean loginDataSelect(String employeeid,String pass);
 
 }

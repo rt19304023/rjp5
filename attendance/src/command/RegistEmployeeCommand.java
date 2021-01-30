@@ -1,6 +1,5 @@
 package command;
 
-import context.RequestContext;
 import context.ResponseContext;
 
 public class RegistEmployeeCommand extends AbstractCommand {
@@ -10,7 +9,7 @@ public class RegistEmployeeCommand extends AbstractCommand {
 	}
 
 	@Override
-	public ResponseContext execute(RequestContext req) {
+	public ResponseContext execute(ResponseContext res) {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
