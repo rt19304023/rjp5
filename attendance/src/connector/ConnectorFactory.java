@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import command.CommandFactory;
 import exception.ApplicationException;
 import exception.SystemException;
 
@@ -20,7 +19,7 @@ public class ConnectorFactory {
 		Object connector;
 
 		try {
-			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("property.connector.properties"));
+			prop.load(ConnectorFactory.class.getClassLoader().getResourceAsStream("property.connector.properties"));
 			name = prop.getProperty(key);
 
 			Class c = Class.forName(name);

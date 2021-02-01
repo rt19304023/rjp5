@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import command.CommandFactory;
 import exception.ApplicationException;
 import exception.SystemException;
 
@@ -21,7 +20,7 @@ public class ContextFactory {
 		Object context;
 
 		try {
-			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("property.context.properties"));
+			prop.load(ContextFactory.class.getClassLoader().getResourceAsStream("property.context.properties"));
 			name = prop.getProperty(key);
 
 			Class c = Class.forName(name);

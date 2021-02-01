@@ -20,7 +20,7 @@ public class OraLoginDao implements LoginDao {
 	}
 
 	@Override
-	public LoginBean loginDataSelect(String employeeid, String pass) {
+	public LoginBean loginDataSelect(String employeeid) {
 		LoginBean bean = new LoginBean();
 		// TODO 自動生成されたメソッド・スタブ
 		try {
@@ -29,7 +29,7 @@ public class OraLoginDao implements LoginDao {
 
 			Connection cn = connector.getConnection();
 
-			String sql ="SELECT employeeid,pass FROM employee_list WHERE employeeid = ?";
+			String sql ="SELECT employeeid,pass,department_code FROM employee_list WHERE employeeid = ?";
 
 			st = cn.prepareStatement(sql);
 
@@ -39,6 +39,7 @@ public class OraLoginDao implements LoginDao {
 
 			bean.setEmployeeId(rs.getString(1));
 			bean.setPass(rs.getString(2));
+			bean.setCode(rs.getString(3));
 
 		}catch(SQLException e) {
 			throw new DataBaseException(e.getMessage(),e);

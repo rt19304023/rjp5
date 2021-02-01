@@ -2,24 +2,16 @@ package command;
 
 import context.ResponseContext;
 
-public class ChangePasswordCommand extends AbstractCommand {
+public class InputCommand extends AbstractCommand {
 
-
-	public ChangePasswordCommand() {
+	public InputCommand() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	@Override
 	public ResponseContext execute(ResponseContext res) {
 		// TODO 自動生成されたメソッド・スタブ
-
-
-
-
-
-
-
-		return res;
+		return null;
 	}
 
 }

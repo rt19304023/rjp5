@@ -6,7 +6,7 @@ public class LoginBean implements Serializable {
 
 	private String employeeId;
 	private String name;
-	private String userType;
+	private String code;
 	private String pass;
 
 	public LoginBean() {
@@ -29,12 +29,12 @@ public class LoginBean implements Serializable {
 		this.name = name;
 	}
 
-	public String getUserType() {
-		return userType;
+	public String getCode() {
+		return code;
 	}
 
-	public void setUserType(String userType) {
-		this.userType = userType;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getPass() {
