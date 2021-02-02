@@ -25,9 +25,33 @@ public class WebRequestContext extends RequestContext {
         parameters=request.getParameterMap();
     }
 
-    public void setSession(String flg){
+    public void setInformation(String name,String Information){
 
-    	request.setAttribute("flg",flg);
+    	request.setAttribute(name,Information);
+
+    }
+
+	@Override
+	public String getOldPath() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	@Override
+	public void invalidateSession() {
+		// TODO 自動生成されたメソッド・スタブ
+		request.getSession(true).invalidate();
+
+	}
+
+	public void setToken(String token) {
+
+		request.getSession(true).setAttribute("token",token);
+
+	}
+    public String getToken() {
+
+    	return (String)request.getSession(true).getAttribute("token");
 
     }
 }

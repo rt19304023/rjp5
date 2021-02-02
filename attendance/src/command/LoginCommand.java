@@ -1,6 +1,7 @@
 package command;
 
 import bean.LoginBean;
+import connector.ReadDBName;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
@@ -18,6 +19,10 @@ public class LoginCommand extends AbstractCommand {
 
 		// TODO 自動生成されたメソッド・スタブ
 
+		String message = null;
+		String target = null;
+		String token = "NG";
+
 		LoginBean bean;
 
 		RequestContext req = getRequestContext();
@@ -25,31 +30,31 @@ public class LoginCommand extends AbstractCommand {
 		String employeeId = req.getParameter("employeeid")[0];
 		String pass = req.getParameter("pass")[0];
 
-		AbstractDaoFactory dao = (AbstractDaoFactory)AbstractDaoFactory.getFactory("oracle");
+		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBName.getDataBaseName());
 
-		LoginDao login = (LoginDao)dao.getLoginDao();
+		LoginDao dao = (LoginDao)factory.getLoginDao();
 
-		bean = login.loginDataSelect(employeeId);
+		bean = dao.loginDataSelect(employeeId);
 
-		String emp;
-		String pa;
-		String code;
+		if(employeeId.equals(bean.getEmployeeId())){
 
-		emp = bean.getEmployeeId();
-		pa = bean.getPass();
-		code = bean.getCode();
-
-		if(employeeId.equals(emp)){
-
-			if(pass.equals(pa)) {
-				res.setTarget(ReadPagePath.getPath(code));
-				req.setSession("true");
+			if(pass.equals(bean.getPass())) {
+				target = ReadPagePath.getPath(bean.getCode());
+				token = "OK";
+			}else {
+				message = "パスワードが違います";
+				target = "/";
 			}
 		}else {
-			res.setTarget("/");
+			message = "社員番号が違います";
+			target = "/";
 		}
 
+		req.setInformation("mes", message);
+		req.setToken(token);
+		res.setTarget(target);
 
+		System.out.println("TARGET:"+res.getTarget());
 
 		return res;
 	}

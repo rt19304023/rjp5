@@ -1,9 +1,9 @@
 package dao;
 
-import java.util.ArrayList;
+import bean.ReferSecretDataBean;
 
 public interface ReferSecretDataDao {
 
-	public ArrayList secretDataSelect(String employeeId);
+	public ReferSecretDataBean secretDataSelect(String employeeId);
 
 }

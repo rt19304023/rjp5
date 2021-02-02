@@ -47,19 +47,19 @@ public class OutputEmployeeInformationBean implements Serializable {
 		this.cardNumber = cardNumber;
 	}
 
-	public String getdepartmentCode() {
+	public String getDepartmentCode() {
 		return departmentCode;
 	}
 
-	public void setdepartmentCode(String departmentCode) {
+	public void setDepartmentCode(String departmentCode) {
 		this.departmentCode = departmentCode;
 	}
 
-	public String getdepartmentName() {
+	public String getDepartmentName() {
 		return departmentName;
 	}
 
-	public void setdepartmentName(String departmentName) {
+	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
 	}
 

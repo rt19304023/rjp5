@@ -1,10 +1,12 @@
 package command;
 
 import bean.ReferSecretDataBean;
+import connector.ReadDBName;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.ReferSecretDataDao;
+import jsp.ReadPagePath;
 
 public class ReferSecretDataCommand extends AbstractCommand {
 
@@ -18,16 +20,41 @@ public class ReferSecretDataCommand extends AbstractCommand {
 
 		ReferSecretDataBean bean = null;
 
-		RequestContext rec = getRequestContext();
+		String message = null;
+		String target = null;
 
-		String employeeid = rec.getParameter("id")[0];
-		String birthday = rec.getParameter("birthday")[0];
-		String secretproblem = rec.getParameter("problem")[0];
-		String secretanswer = rec.getParameter("answer")[0];
+		RequestContext req = getRequestContext();
 
-		AbstractDaoFactory dao = (AbstractDaoFactory)AbstractDaoFactory.getFactory("oracle");
+		String employeeId = req.getParameter("id")[0];
+		String birthday = req.getParameter("birthday")[0];
+		String secretProblem = req.getParameter("problem")[0];
+		String secretAnswer = req.getParameter("answer")[0];
 
-		ReferSecretDataDao refer = (ReferSecretDataDao)dao.getReferSecretDataDao();
+		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBName.getDataBaseName());
+
+		ReferSecretDataDao dao = (ReferSecretDataDao)factory.getReferSecretDataDao();
+
+		bean = dao.secretDataSelect(employeeId);
+
+
+		if(birthday.equals(bean.getBirthday())) {
+			if(secretProblem.equals(bean.getSecretProblem()) && secretAnswer.equals(bean.getSecretAnswer())) {
+
+				target = ReadPagePath.getPath(bean.getCode());
+
+			}else {
+				message = "秘密の問題または回答が違います";
+				target = "/";
+			}
+		}else {
+			message = "誕生日が違います";
+			target = "/";
+		}
+
+		req.setInformation("mes", message);
+		res.setTarget(target);
+
+		System.out.println("TARGET:"+res.getTarget());
 
 		return res;
 	}

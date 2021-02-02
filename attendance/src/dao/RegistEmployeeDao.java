@@ -1,8 +1,9 @@
 package dao;
 
+import bean.OutputEmployeeInformationBean;
+
 public interface RegistEmployeeDao {
 
-	public void employeeRegist(String employeeId,String name,String cardNumber,
-			String userType,String depertmentCode,String depertmentName);
+	public OutputEmployeeInformationBean employeeRegist(OutputEmployeeInformationBean bean);
 
 }

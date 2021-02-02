@@ -3,13 +3,21 @@ package bean;
 import java.io.Serializable;
 
 public class ReferSecretDataBean implements Serializable {
-
+	private String code;
 	private String birthday;
 	private String secretProblem;
 	private String secretAnswer;
 
 	public ReferSecretDataBean() {
 		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getBirthday() {
