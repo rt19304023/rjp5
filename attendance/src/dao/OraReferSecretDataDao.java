@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import bean.ReferSecretDataBean;
 import connector.Connector;
 import connector.ConnectorFactory;
-import connector.ReadDBName;
+import connector.ReadDBInformation;
 import exception.DataBaseException;
 
 public class OraReferSecretDataDao implements ReferSecretDataDao {
@@ -29,7 +29,7 @@ public class OraReferSecretDataDao implements ReferSecretDataDao {
 		// TODO 自動生成されたメソッド・スタブ
 
 
-		connector = (Connector)ConnectorFactory.getConnector(ReadDBName.getDataBaseName());
+		connector = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		cn = connector.getConnection();
 
@@ -51,8 +51,34 @@ public class OraReferSecretDataDao implements ReferSecretDataDao {
 			bean.setSecretAnswer(rs.getString(3));
 			bean.setCode(rs.getString(4));
 
-		}catch(SQLException e) {
+			cn.commit();
+
+		}catch(SQLException e){
+			try{
+				cn.rollback();
+			}catch(SQLException ex){
+				throw new DataBaseException(ex.getMessage(),ex);
+			}
 			throw new DataBaseException(e.getMessage(),e);
+		}finally{
+			try{
+				if(rs != null) {
+					rs.close();
+				}
+				if(st != null){
+					st.close();
+				}
+			}catch(SQLException e){
+				throw new DataBaseException(e.getMessage(),e);
+			}finally {
+				try {
+					if(cn != null) {
+						cn.close();
+					}
+				}catch(SQLException ex) {
+					throw new DataBaseException(ex.getMessage(),ex);
+				}
+			}
 		}
 
 		return bean;

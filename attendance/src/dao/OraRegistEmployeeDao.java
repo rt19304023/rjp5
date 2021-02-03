@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import bean.OutputEmployeeInformationBean;
 import connector.Connector;
 import connector.ConnectorFactory;
-import connector.ReadDBName;
+import connector.ReadDBInformation;
 import exception.DataBaseException;
 
 public class OraRegistEmployeeDao implements RegistEmployeeDao {
@@ -26,7 +26,7 @@ public class OraRegistEmployeeDao implements RegistEmployeeDao {
 	public OutputEmployeeInformationBean employeeRegist(OutputEmployeeInformationBean bean) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		connector = (Connector)ConnectorFactory.getConnector(ReadDBName.getDataBaseName());
+		connector = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		cn = connector.getConnection();
 
@@ -62,9 +62,35 @@ public class OraRegistEmployeeDao implements RegistEmployeeDao {
 			bean.setCardNumber(rs.getString(4));
 			bean.setDepartmentCode(rs.getString(5));
 
+			cn.commit();
 
-		}catch(SQLException e) {
+
+		}catch(SQLException e){
+			try{
+				cn.rollback();
+			}catch(SQLException ex){
+				throw new DataBaseException(ex.getMessage(),ex);
+			}
 			throw new DataBaseException(e.getMessage(),e);
+		}finally{
+			try{
+				if(rs != null) {
+					rs.close();
+				}
+				if(st != null){
+					st.close();
+				}
+			}catch(SQLException e){
+				throw new DataBaseException(e.getMessage(),e);
+			}finally {
+				try {
+					if(cn != null) {
+						cn.close();
+					}
+				}catch(SQLException ex) {
+					throw new DataBaseException(ex.getMessage(),ex);
+				}
+			}
 		}
 
 		return bean;

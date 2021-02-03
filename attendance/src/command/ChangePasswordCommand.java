@@ -1,7 +1,7 @@
 package command;
 
 
-import connector.ReadDBName;
+import connector.ReadDBInformation;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
@@ -24,7 +24,7 @@ public class ChangePasswordCommand extends AbstractCommand {
 		String pass = req.getParameter("pass")[0];
 
 
-		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBName.getDataBaseName());
+		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		ChangePasswordDao dao = (ChangePasswordDao)factory.getChangePasswordDao();
 

@@ -4,14 +4,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import exception.DataBaseException;
 import exception.SystemException;
 
 public class OraConnector implements Connector {
 
 	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String user = "attendance";
-	private String pass = "attendance";
-	private String orcl = "jdbc:oracle:thin:@localhost:1521:orcl";
+	private String user = ReadDBInformation.getDataBaseInfo("user");
+	private String pass = ReadDBInformation.getDataBaseInfo("pass");
+	private String url = ReadDBInformation.getDataBaseInfo("url");
+	private Connection connection = null;
 
 	public OraConnector() {
 		// TODO 自動生成されたコンストラクター・スタブ
@@ -21,20 +23,20 @@ public class OraConnector implements Connector {
 	public Connection getConnection() {
 		// TODO 自動生成されたメソッド・スタブ
 
-		Connection connection = null;
+
 
 		try {
 			Class.forName(driver);
 
-			connection = DriverManager.getConnection(orcl,user,pass);
+			connection = DriverManager.getConnection(url,user,pass);
 
 			connection.setAutoCommit(false);
 
-		}catch(ClassNotFoundException | SQLException e) {
+		}catch(ClassNotFoundException e) {
 			throw new SystemException(e.getMessage(),e);
+		}catch(SQLException e) {
+			throw new DataBaseException(e.getMessage(),e);
 		}
-
 		return connection;
 	}
-
 }

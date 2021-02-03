@@ -5,20 +5,20 @@ import java.util.Properties;
 
 import exception.SystemException;
 
-public class ReadDBName {
+public class ReadDBInformation {
 
-	public ReadDBName() {
+	public ReadDBInformation() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
-	public static String getDataBaseName() {
+	public static String getDataBaseInfo(String key) {
 		Properties prop = new Properties();
 		String database = null;
 
 		try {
-			prop.load(ReadDBName.class.getClassLoader().getResourceAsStream("property.db_name.properties"));
+			prop.load(ReadDBInformation.class.getClassLoader().getResourceAsStream("property.db_Info.properties"));
 
-			database = prop.getProperty("dbname");
+			database = prop.getProperty(key);
 
 		}catch(IOException e) {
 			throw new SystemException(e.getMessage(),e);

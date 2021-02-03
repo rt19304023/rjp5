@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import connector.Connector;
 import connector.ConnectorFactory;
-import connector.ReadDBName;
+import connector.ReadDBInformation;
 import exception.DataBaseException;
 
 public class OraChangePasswordDao implements ChangePasswordDao {
@@ -23,11 +23,11 @@ public class OraChangePasswordDao implements ChangePasswordDao {
 	public void passChange(String id,String pass) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		connector = (Connector)ConnectorFactory.getConnector(ReadDBName.getDataBaseName());
+		connector = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		cn = connector.getConnection();
 
-		String sql = "UPDATE employee_list SET pass = ? WHERE employeeid =" + id ;
+		String sql = "UPDATE employee_list SET pass = ? WHERE employeeid = ?";
 
 		try {
 
@@ -35,10 +35,36 @@ public class OraChangePasswordDao implements ChangePasswordDao {
 
 			st.setString(1,pass);
 
+			st.setString(2,id);
+
 			st.executeUpdate();
 
-		}catch(SQLException e) {
+			cn.commit();
+
+
+		}catch(SQLException e){
+			try{
+				cn.rollback();
+			}catch(SQLException ex){
+				throw new DataBaseException(ex.getMessage(),ex);
+			}
 			throw new DataBaseException(e.getMessage(),e);
+		}finally{
+			try{
+				if(st != null){
+					st.close();
+				}
+			}catch(SQLException e){
+				throw new DataBaseException(e.getMessage(),e);
+			}finally {
+				try {
+					if(cn != null) {
+						cn.close();
+					}
+				}catch(SQLException ex) {
+					throw new DataBaseException(ex.getMessage(),ex);
+				}
+			}
 		}
 	}
 

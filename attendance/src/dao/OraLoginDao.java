@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import bean.LoginBean;
 import connector.Connector;
 import connector.ConnectorFactory;
-import connector.ReadDBName;
+import connector.ReadDBInformation;
 import exception.DataBaseException;
 
 public class OraLoginDao implements LoginDao {
@@ -16,6 +16,7 @@ public class OraLoginDao implements LoginDao {
 	private Connector connector = null;
 	private Connection cn = null;
 	private PreparedStatement st = null;
+	private ResultSet rs = null;
 
 	public OraLoginDao() {
 		// TODO 自動生成されたコンストラクター・スタブ
@@ -27,7 +28,7 @@ public class OraLoginDao implements LoginDao {
 		// TODO 自動生成されたメソッド・スタブ
 
 
-		connector = (Connector)ConnectorFactory.getConnector(ReadDBName.getDataBaseName());
+		connector = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		Connection cn = connector.getConnection();
 
@@ -39,7 +40,7 @@ public class OraLoginDao implements LoginDao {
 
 			st.setString (1,employeeid);
 
-			ResultSet rs = st.executeQuery();
+			rs = st.executeQuery();
 
 			rs.next();
 
@@ -47,10 +48,33 @@ public class OraLoginDao implements LoginDao {
 			bean.setPass(rs.getString(2));
 			bean.setCode(rs.getString(3));
 
-		}catch(SQLException e) {
+		}catch(SQLException e){
+			try{
+				cn.rollback();
+			}catch(SQLException ex){
+				throw new DataBaseException(ex.getMessage(),ex);
+			}
 			throw new DataBaseException(e.getMessage(),e);
+		}finally{
+			try{
+				if(rs != null) {
+					rs.close();
+				}
+				if(st != null){
+					st.close();
+				}
+			}catch(SQLException e){
+				throw new DataBaseException(e.getMessage(),e);
+			}finally {
+				try {
+					if(cn != null) {
+						cn.close();
+					}
+				}catch(SQLException ex) {
+					throw new DataBaseException(ex.getMessage(),ex);
+				}
+			}
 		}
-
 		return bean;
 	}
 

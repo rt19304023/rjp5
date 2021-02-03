@@ -1,7 +1,7 @@
 package command;
 
 import bean.ReferSecretDataBean;
-import connector.ReadDBName;
+import connector.ReadDBInformation;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
@@ -30,7 +30,7 @@ public class ReferSecretDataCommand extends AbstractCommand {
 		String secretProblem = req.getParameter("problem")[0];
 		String secretAnswer = req.getParameter("answer")[0];
 
-		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBName.getDataBaseName());
+		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		ReferSecretDataDao dao = (ReferSecretDataDao)factory.getReferSecretDataDao();
 

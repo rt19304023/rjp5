@@ -1,7 +1,7 @@
 package command;
 
 import bean.LoginBean;
-import connector.ReadDBName;
+import connector.ReadDBInformation;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
@@ -30,7 +30,7 @@ public class LoginCommand extends AbstractCommand {
 		String employeeId = req.getParameter("employeeid")[0];
 		String pass = req.getParameter("pass")[0];
 
-		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBName.getDataBaseName());
+		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		LoginDao dao = (LoginDao)factory.getLoginDao();
 

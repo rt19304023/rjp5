@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class ReferSecretDataBean implements Serializable {
 	private String code;
+	private String id;
 	private String birthday;
 	private String secretProblem;
 	private String secretAnswer;
@@ -18,6 +19,14 @@ public class ReferSecretDataBean implements Serializable {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getBirthday() {

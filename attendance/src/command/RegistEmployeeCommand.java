@@ -1,7 +1,7 @@
 package command;
 
 import bean.OutputEmployeeInformationBean;
-import connector.ReadDBName;
+import connector.ReadDBInformation;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
@@ -26,7 +26,7 @@ public class RegistEmployeeCommand extends AbstractCommand {
 		bean.setDepartmentCode(req.getParameter("departmentcode")[0]);
 		bean.setPass(GeneratePassword.generatePassword(15));
 
-		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBName.getDataBaseName());
+		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		RegistEmployeeDao dao = (RegistEmployeeDao)factory.getRegistEmployeeDao();
 

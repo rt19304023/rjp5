@@ -20,12 +20,12 @@ public class WebApplicationController implements ApplicationController {
         reqc.setRequest(request);
         return reqc;
     }
-    
+
 
     public ResponseContext handleRequest(RequestContext reqc){
         AbstractCommand command = (AbstractCommand) CommandFactory.getCommand(reqc);
         command.init(reqc);
-        ResponseContext resc = command.execute((RequestContext)ContextFactory.getContext("webres"));
+        ResponseContext resc = command.execute((ResponseContext)ContextFactory.getContext("webres"));
         return resc;
     }
 

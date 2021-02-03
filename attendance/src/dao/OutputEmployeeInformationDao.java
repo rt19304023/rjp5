@@ -1,9 +1,9 @@
 package dao;
 
-import java.util.ArrayList;
+import bean.OutputEmployeeInformationBean;
 
 public interface OutputEmployeeInformationDao {
 
-	public ArrayList employeeInFormationSelect(String employeeId);
+	public OutputEmployeeInformationBean employeeInFormationSelect(String employeeId);
 
 }
