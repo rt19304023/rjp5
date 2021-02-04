@@ -31,7 +31,7 @@ public class RegistEmployeeCommand extends AbstractCommand {
 		RegistEmployeeDao dao = (RegistEmployeeDao)factory.getRegistEmployeeDao();
 
 		res.setResult(dao.employeeRegist(bean));
-		res.setTarget("result");
+		res.setTarget("regist-result");
 
 		req.setInformation("contents", "社員登録完了");
 

@@ -26,7 +26,7 @@ public class OutputEmployeeInformationCommand extends AbstractCommand {
 
 		res.setResult(dao.employeeInFormationSelect(id));
 
-		res.setTarget("");
+		res.setTarget("emp-search-result");
 
 		req.setInformation("contents", "社員情報");
 
