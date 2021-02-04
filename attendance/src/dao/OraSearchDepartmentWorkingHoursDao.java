@@ -23,12 +23,15 @@ public class OraSearchDepartmentWorkingHoursDao implements SearchDepartmentWorki
 	@Override
 	public SearchDepartmentWorkingHoursBean workingHoursSerch(SearchDepartmentWorkingHoursBean bean) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 		connector = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
-		
+
 		cn = (Connection)connector.getConnection();
-		
-		String sql = "SELECT employeeid, FROM time_sheets";
+
+		String sql = "SELECT time_sheets.employeeid, name, +" FROM time_sheets ";"
+		String sql2 = "SELECT (SUM(leaveWork - attendance) - SUM(returntime - goouttime))* 1440"
+		String sql3 =
+		String sql4 =
 
 
 		return bean;

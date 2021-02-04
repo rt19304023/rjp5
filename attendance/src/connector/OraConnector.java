@@ -26,7 +26,7 @@ public class OraConnector implements Connector {
 
 
 		try {
-			Class.forName(driver);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			connection = DriverManager.getConnection(url,user,pass);
 

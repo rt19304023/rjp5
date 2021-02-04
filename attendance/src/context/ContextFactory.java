@@ -20,7 +20,7 @@ public class ContextFactory {
 		Object context;
 
 		try {
-			prop.load(ContextFactory.class.getClassLoader().getResourceAsStream("property.context.properties"));
+			prop.load(ContextFactory.class.getClassLoader().getResourceAsStream("property/context.properties"));
 			name = prop.getProperty(key);
 
 			Class c = Class.forName(name);

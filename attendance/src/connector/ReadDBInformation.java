@@ -16,7 +16,7 @@ public class ReadDBInformation {
 		String database = null;
 
 		try {
-			prop.load(ReadDBInformation.class.getClassLoader().getResourceAsStream("property.db_Info.properties"));
+			prop.load(ReadDBInformation.class.getClassLoader().getResourceAsStream("property/db_Info.properties"));
 
 			database = prop.getProperty(key);
 

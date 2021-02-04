@@ -21,7 +21,7 @@ public abstract class AbstractDaoFactory {
 		Object factory;
 
 		try {
-			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("property.dao.properties"));
+			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("property/dao.properties"));
 			name = prop.getProperty(key);
 
 			Class c = Class.forName(name);

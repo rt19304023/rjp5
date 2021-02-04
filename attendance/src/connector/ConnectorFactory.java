@@ -19,7 +19,7 @@ public class ConnectorFactory {
 		Object connector;
 
 		try {
-			prop.load(ConnectorFactory.class.getClassLoader().getResourceAsStream("property.connector.properties"));
+			prop.load(ConnectorFactory.class.getClassLoader().getResourceAsStream("property/connector.properties"));
 			name = prop.getProperty(key);
 
 			Class c = Class.forName(name);
