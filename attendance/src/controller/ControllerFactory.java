@@ -20,7 +20,7 @@ public class ControllerFactory {
 		Object controller;
 
 		try {
-			prop.load(ControllerFactory.class.getClassLoader().getResourceAsStream("property.application_controller.properties"));
+			prop.load(ControllerFactory.class.getClassLoader().getResourceAsStream("property/controller.properties"));
 			name = prop.getProperty(key);
 
 			Class c = Class.forName(name);
