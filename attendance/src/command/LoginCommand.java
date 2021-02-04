@@ -43,11 +43,11 @@ public class LoginCommand extends AbstractCommand {
 				token = "OK";
 			}else {
 				message = "パスワードが違います";
-				target = "/";
+				target = "login";
 			}
 		}else {
 			message = "社員番号が違います";
-			target = "/";
+			target = "login";
 		}
 
 		req.setInformation("mes", message);

@@ -42,11 +42,11 @@ public class OraLoginDao implements LoginDao {
 
 			rs = st.executeQuery();
 
-			rs.next();
-
-			bean.setEmployeeId(rs.getString(1));
-			bean.setPass(rs.getString(2));
-			bean.setCode(rs.getString(3));
+			while(rs.next()) {
+				bean.setEmployeeId(rs.getString(1));
+				bean.setPass(rs.getString(2));
+				bean.setCode(rs.getString(3));
+			}
 
 		}catch(SQLException e){
 			try{
