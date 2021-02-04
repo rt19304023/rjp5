@@ -33,7 +33,7 @@ public class RegistSecretDataCommand extends AbstractCommand {
 
 		dao.secretDataRegist(bean);
 
-		res.setTarget("");
+		res.setTarget("question-registed");
 		req.setInformation("contents", "シークレット情報登録完了");
 
 		System.out.println("TARGET:"+res.getTarget());

@@ -30,7 +30,7 @@ public class ChangePasswordCommand extends AbstractCommand {
 
 		dao.passChange(id,pass);
 
-		res.setTarget("done");
+		res.setTarget("change-pass-result");
 
 		req.setInformation("contents", "パスワード登録完了");
 
