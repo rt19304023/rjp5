@@ -30,6 +30,10 @@ public class SearchDepartmentWorkingHoursCommand extends AbstractCommand {
 
 		res.setResult(dao.workingHoursSerch(bean));
 
+		res.setTarget("/");
+
+		System.out.println("TARGET:"+res.getTarget());
+
 		return res;
 	}
 

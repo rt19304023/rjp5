@@ -1,6 +1,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class OutputEmployeeInformationBean implements Serializable {
 
@@ -10,6 +11,7 @@ public class OutputEmployeeInformationBean implements Serializable {
 	private String cardNumber;
 	private String departmentCode;
 	private String departmentName;
+	private ArrayList timeList;
 
 	public OutputEmployeeInformationBean() {
 		// TODO 自動生成されたコンストラクター・スタブ
@@ -61,6 +63,14 @@ public class OutputEmployeeInformationBean implements Serializable {
 
 	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
+	}
+
+	public ArrayList getTimeList() {
+		return timeList;
+	}
+
+	public void setTimeList(ArrayList timeList) {
+		this.timeList = timeList;
 	}
 
 }

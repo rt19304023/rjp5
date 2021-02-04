@@ -33,12 +33,11 @@ public class OraReferSecretDataDao implements ReferSecretDataDao {
 
 		cn = connector.getConnection();
 
-		String sql ="SELECT birthday,secretproblem,secretanswer,department_code FROM employee_secret secret JOIN employee_list list ";
-		String sql2 = "ON secret.employeeid = list.employeeid WHERE employeeid = ?";
+		String sql ="SELECT * FROM secret_select WHERE employeeid = ?";
 
 		try {
 
-			st = cn.prepareStatement(sql.concat(sql2));
+			st = cn.prepareStatement(sql);
 
 			st.setString(1,employeeId);
 

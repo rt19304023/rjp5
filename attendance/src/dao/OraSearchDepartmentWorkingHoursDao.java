@@ -3,11 +3,13 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import bean.SearchDepartmentWorkingHoursBean;
 import connector.Connector;
 import connector.ConnectorFactory;
 import connector.ReadDBInformation;
+import exception.DataBaseException;
 
 public class OraSearchDepartmentWorkingHoursDao implements SearchDepartmentWorkingHoursDao {
 
@@ -28,10 +30,55 @@ public class OraSearchDepartmentWorkingHoursDao implements SearchDepartmentWorki
 
 		cn = (Connection)connector.getConnection();
 
-		String sql = "SELECT time_sheets.employeeid, name, +" FROM time_sheets ";"
-		String sql2 = "SELECT (SUM(leaveWork - attendance) - SUM(returntime - goouttime))* 1440"
-		String sql3 =
-		String sql4 =
+		String sql = "SELECT * FROM dept_total_time WHERE dep_code = ? AND month = ?";
+
+		try {
+
+			st = cn.prepareStatement(sql);
+
+			st.setString(1, bean.getDepartmentCode());
+			st.setString(2, bean.getMonth());
+
+			rs = st.executeQuery();
+
+			while(rs.next()){
+
+				bean.setEmployeeId(rs.getString(1));
+				bean.setName(rs.getString(2));
+				bean.setDepartmentCode(rs.getString(3));
+				bean.setDepartmentName(rs.getString(4));
+				bean.setMonth(rs.getString(5));
+				bean.setWorkTime(rs.getString(6));
+
+			}
+			cn.commit();
+		}catch(SQLException e){
+			try{
+				cn.rollback();
+			}catch(SQLException ex){
+				throw new DataBaseException(ex.getMessage(),ex);
+			}
+			throw new DataBaseException(e.getMessage(),e);
+		}finally{
+			try{
+				if(rs != null) {
+					rs.close();
+				}
+				if(st != null){
+					st.close();
+				}
+			}catch(SQLException e){
+				throw new DataBaseException(e.getMessage(),e);
+			}finally {
+				try {
+					if(cn != null) {
+						cn.close();
+					}
+				}catch(SQLException ex) {
+					throw new DataBaseException(ex.getMessage(),ex);
+				}
+			}
+		}
 
 
 		return bean;
