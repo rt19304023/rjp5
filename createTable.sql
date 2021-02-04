@@ -39,7 +39,12 @@ CREATE TABLE time_sheets
 	attendance date,
 	goouttime date,
 	returntime date,
-	leaveWork date 
+	leaveWork date
 );
+
+INSERT INTO department VALUES(1001,'管理者');
+INSERT INTO department VALUES(1002,'経理部');
+INSERT INTO department VALUES(1003,'一般');
+INSERT INTO employee_list VALUES(employeeid.nextval,'dummy','dummydummy','0000',1001);
 
 SELECT TABLE_NAME FROM USER_TABLES;
