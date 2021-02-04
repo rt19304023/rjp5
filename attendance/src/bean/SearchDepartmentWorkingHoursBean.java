@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class SearchDepartmentWorkingHoursBean implements Serializable {
 
 	private String month;
+	private String departmentCode;
 	private String departmentName;
 	private String employeeId;
 	private String name;
@@ -21,6 +22,14 @@ public class SearchDepartmentWorkingHoursBean implements Serializable {
 
 	public void setMonth(String month) {
 		this.month = month;
+	}
+
+	public String getDepartmentCode() {
+		return departmentCode;
+	}
+
+	public void setDepartmentCode(String departmentCode) {
+		this.departmentCode = departmentCode;
 	}
 
 	public String getdepartmentName() {

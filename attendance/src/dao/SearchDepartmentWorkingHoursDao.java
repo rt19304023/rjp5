@@ -1,9 +1,9 @@
 package dao;
 
-import java.util.ArrayList;
+import bean.SearchDepartmentWorkingHoursBean;
 
 public interface SearchDepartmentWorkingHoursDao {
 
-	public ArrayList workingHoursSerch(String month,String departmentName);
+	public SearchDepartmentWorkingHoursBean workingHoursSerch(SearchDepartmentWorkingHoursBean bean);
 
 }
