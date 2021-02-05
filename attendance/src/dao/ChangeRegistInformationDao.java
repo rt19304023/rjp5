@@ -1,11 +1,10 @@
 package dao;
 
-import java.util.ArrayList;
+import bean.OutputEmployeeInformationBean;
 
 public interface ChangeRegistInformationDao {
 
-	public ArrayList registInformationChange(String employeeId,String name,String cardNumber,
-												String userType,String depertmentCode,String depertmentName);
+	public OutputEmployeeInformationBean registInformationChange(OutputEmployeeInformationBean bean);
 
 }
 

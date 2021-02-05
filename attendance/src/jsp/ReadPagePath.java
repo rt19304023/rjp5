@@ -20,7 +20,7 @@ public class ReadPagePath {
 
 		try {
 
-			prop.load(ReadPagePath.class.getClassLoader().getResourceAsStream("jsp/property.top_page.properties"));
+			prop.load(ReadPagePath.class.getClassLoader().getResourceAsStream("property/page.properties"));
 
 			path = prop.getProperty(code);
 

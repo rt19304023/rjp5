@@ -1,5 +1,6 @@
 package command;
 
+import context.RequestContext;
 import context.ResponseContext;
 
 public class LogoutCommand extends AbstractCommand {
@@ -11,7 +12,22 @@ public class LogoutCommand extends AbstractCommand {
 	@Override
 	public ResponseContext execute(ResponseContext res) {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+
+		String message = null;
+		String target = null;
+		String token = "NG";
+
+		RequestContext req = getRequestContext();
+
+		req.invalidateSession();
+
+		message = "ログアウトしました。";
+
+		req.setInformation("mes", message);
+
+		res.setTarget("/");
+
+		return res;
 	}
 
 }

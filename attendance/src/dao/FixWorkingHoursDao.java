@@ -1,10 +1,9 @@
 package dao;
 
-import java.util.ArrayList;
+import bean.SearchWorkingHoursBean;
 
 public interface FixWorkingHoursDao {
 
-	public ArrayList workingHoursFix(String employeeId,String date,String attendance,
-			String gooutTime,String returnTime,String leaveWork);
+	public SearchWorkingHoursBean workingHoursFix(SearchWorkingHoursBean bean);
 
 }

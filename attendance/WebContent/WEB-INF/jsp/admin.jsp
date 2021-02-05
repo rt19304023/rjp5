@@ -12,11 +12,12 @@
 
 <body>
 	<p>社員番号</p><p>社員名</p>
-	<p><a href="registEmployee">社員登録</a></p>
-	<p><a href="deleteEmploye">社員削除</a></p>
-	<p><a href="outputEmployeeInformation">社員情報検索</a></p>
-	<p><a href="changeRegistInformation">社員登録内容変更</a></p>
-	<p><a href="changePassword">パスワード変更</a></p>
-	<p><a href="searchWorkingHours">勤務時間検索</a></p>
+	<p><a href="regist-e">社員登録</a></p>
+	<p><a href="delete-e">社員削除</a></p>
+	<p><a href="output">社員情報検索</a></p>
+	<p><a href="change-i">社員登録内容変更</a></p>
+	<p><a href="pass">パスワード変更</a></p>
+	<p><a href="hours">勤務時間検索</a></p>
 </body>
 </html>
+

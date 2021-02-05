@@ -1,6 +1,8 @@
 package command;
 
+import context.RequestContext;
 import context.ResponseContext;
+import jsp.ReadPagePath;
 
 public class InputCommand extends AbstractCommand {
 
@@ -11,7 +13,15 @@ public class InputCommand extends AbstractCommand {
 	@Override
 	public ResponseContext execute(ResponseContext res) {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+
+		RequestContext req = getRequestContext();
+
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
+
+		System.out.println("TARGET:" + res.getTarget());
+
+
+		return res;
 	}
 
 }

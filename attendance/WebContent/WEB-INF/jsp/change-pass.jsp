@@ -12,6 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>パスワード変更</h1>
 </body>
 </html>

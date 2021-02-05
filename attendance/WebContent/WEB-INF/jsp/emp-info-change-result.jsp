@@ -11,6 +11,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+		<h1>社員情報変更完了</h1>
 </body>
 </html>
