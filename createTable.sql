@@ -17,11 +17,11 @@ CREATE TABLE employee_list
 	pass VARCHAR2(30) NOT NULL,
 	cardid VARCHAR2(20) NOT NULL,
 	department_code
- NUMBER(4) NOT NULL CONSTRAINT employeeList_departmentCode_fk REFERENCES department(code)
+ NUMBER(4) NOT NULL CONSTRAINT employeeList_departmentCode_fk REFERENCES department(code) ON DELETE CASCADE
 );
 CREATE TABLE employee_secret
 (
-	employeeid NUMBER(7) CONSTRAINT secret_id_pk PRIMARY KEY REFERENCES employee_list(employeeid),
+	employeeid NUMBER(7) CONSTRAINT secret_id_pk PRIMARY KEY REFERENCES employee_list(employeeid) ON DELETE CASCADE,
 	birthday date ,
 	secret_problem VARCHAR2(20) NOT NULL,
 	secret_answer VARCHAR2(40) NOT NULL
@@ -30,7 +30,7 @@ CREATE TABLE assignment
 (
 	employeeid NUMBER(7) CONSTRAINT assignment_id_pk PRIMARY KEY REFERENCES employee_list(employeeid),
 	name VARCHAR2(30) NOT NULL,
-	depertment_code NUMBER(4) NOT NULL CONSTRAINT assignment_dcode_fk REFERENCES department(code)
+	depertment_code NUMBER(4) NOT NULL CONSTRAINT assignment_dcode_fk REFERENCES department(code) ON DELETE CASCADE
 );
 CREATE TABLE time_sheets
 (
