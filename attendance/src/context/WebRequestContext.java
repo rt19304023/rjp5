@@ -27,7 +27,7 @@ public class WebRequestContext extends RequestContext {
 
     public void setInformation(String name,String Information){
 
-    	request.setAttribute(name,Information);
+    	request.getSession().setAttribute(name,Information);
 
     }
 
@@ -40,18 +40,13 @@ public class WebRequestContext extends RequestContext {
 	@Override
 	public void invalidateSession() {
 		// TODO 自動生成されたメソッド・スタブ
-		request.getSession(true).invalidate();
+		request.getSession().invalidate();
 
 	}
 
-	public void setToken(String token) {
-
-		request.getSession(true).setAttribute("token",token);
-
+	@Override
+	public String getInformation(String key) {
+		// TODO 自動生成されたメソッド・スタブ
+		return (String)request.getSession().getAttribute(key);
 	}
-    public String getToken() {
-
-    	return (String)request.getSession(true).getAttribute("token");
-
-    }
 }

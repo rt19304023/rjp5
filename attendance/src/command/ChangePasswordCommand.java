@@ -20,7 +20,7 @@ public class ChangePasswordCommand extends AbstractCommand {
 
 		RequestContext req = getRequestContext();
 
-		String id = req.getParameter("employeeid")[0];
+		String id = req.getParameter("id")[0];
 		String pass = req.getParameter("pass")[0];
 
 

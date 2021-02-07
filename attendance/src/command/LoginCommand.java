@@ -39,8 +39,14 @@ public class LoginCommand extends AbstractCommand {
 		if(employeeId.equals(bean.getEmployeeId())){
 
 			if(pass.equals(bean.getPass())) {
-				target = ReadPagePath.getPath(bean.getCode());
+				String code = bean.getCode();
+				target = ReadPagePath.getPath(code);
 				token = "OK";
+				req.setInformation("code", code);
+				req.setInformation("token", token);
+				req.setInformation("uid", employeeId);
+				req.setInformation("name", bean.getName());
+
 			}else {
 				message = "パスワードが違います";
 				target = "login";
@@ -50,11 +56,14 @@ public class LoginCommand extends AbstractCommand {
 			target = "login";
 		}
 
+
 		req.setInformation("mes", message);
-		req.setToken(token);
+
 		res.setTarget(target);
 
 		System.out.println("TARGET:"+res.getTarget());
+		System.out.println("TOKEN:"+req.getInformation("token"));
+		System.out.println("EMP-ID:"+req.getInformation("uid"));
 
 		return res;
 	}

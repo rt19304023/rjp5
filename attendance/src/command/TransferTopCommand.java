@@ -2,10 +2,11 @@ package command;
 
 import context.RequestContext;
 import context.ResponseContext;
+import jsp.ReadPagePath;
 
-public class LogoutCommand extends AbstractCommand {
+public class TransferTopCommand extends AbstractCommand {
 
-	public LogoutCommand() {
+	public TransferTopCommand() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
@@ -13,15 +14,11 @@ public class LogoutCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext res) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		String message = null;
-		String target = null;
-		String token = "NG";
-
 		RequestContext req = getRequestContext();
 
-		req.invalidateSession();
+		res.setTarget(ReadPagePath.getPath(req.getInformation("code")));
 
-		res.setTarget("logout-result");
+		System.out.println("TARGET:" + res.getTarget());
 
 		return res;
 	}

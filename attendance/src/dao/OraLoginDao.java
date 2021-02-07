@@ -30,9 +30,9 @@ public class OraLoginDao implements LoginDao {
 
 		connector = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
 
-		Connection cn = connector.getConnection();
+		cn = connector.getConnection();
 
-		String sql ="SELECT employeeid,pass,department_code FROM employee_list WHERE employeeid = ?";
+		String sql ="SELECT employeeid,pass,department_code, name FROM employee_list WHERE employeeid = ?";
 
 		try {
 
@@ -46,6 +46,7 @@ public class OraLoginDao implements LoginDao {
 				bean.setEmployeeId(rs.getString(1));
 				bean.setPass(rs.getString(2));
 				bean.setCode(rs.getString(3));
+				bean.setName(rs.getString(4));
 			}
 
 		}catch(SQLException e){

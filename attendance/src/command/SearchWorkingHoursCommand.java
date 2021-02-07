@@ -22,15 +22,16 @@ public class SearchWorkingHoursCommand extends AbstractCommand {
 		SearchWorkingHoursBean bean = new SearchWorkingHoursBean();
 
 		bean.setEmployeeId(req.getParameter("employeeid")[0]);
+		System.out.println("EMPLOYEEID:" + req.getParameter("employeeid")[0]);
 		bean.setMonth(req.getParameter("month")[0]);
-
+		System.out.println("MONTH:" + req.getParameter("month")[0]);
 		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		OraSearchWorkingHoursDao dao  = (OraSearchWorkingHoursDao)factory.getSearchWorkingHoursDao();
 
 		res.setResult(dao.workingHoursSearch(bean));
 
-		res.setTarget("");
+		res.setTarget("swh-result");
 
 		req.setInformation("content", "勤務時間");
 

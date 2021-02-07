@@ -23,9 +23,9 @@ public class OraReferSecretDataDao implements ReferSecretDataDao {
 	}
 
 	@Override
-	public ReferSecretDataBean secretDataSelect(String employeeId) {
+	public ReferSecretDataBean secretDataSelect(String employeeid) {
 
-		ReferSecretDataBean bean = new ReferSecretDataBean();
+		ReferSecretDataBean resultbean = null;
 		// TODO 自動生成されたメソッド・スタブ
 
 
@@ -39,16 +39,19 @@ public class OraReferSecretDataDao implements ReferSecretDataDao {
 
 			st = cn.prepareStatement(sql);
 
-			st.setString(1,employeeId);
+			st.setString (1,employeeid);
 
 			rs = st.executeQuery();
 
-			rs.next();
-
-			bean.setBirthday(rs.getString(1));
-			bean.setSecretProblem(rs.getString(2));
-			bean.setSecretAnswer(rs.getString(3));
-			bean.setCode(rs.getString(4));
+			while(rs.next()){
+				ReferSecretDataBean bean = new ReferSecretDataBean();
+				bean.setBirthday(rs.getString(2));
+				bean.setSecretProblem(rs.getString(3));
+				bean.setSecretAnswer(rs.getString(4));
+				bean.setCode(rs.getString(5));
+				System.out.println("BEAN:" + bean);
+				resultbean = bean;
+			}
 
 			cn.commit();
 
@@ -80,7 +83,7 @@ public class OraReferSecretDataDao implements ReferSecretDataDao {
 			}
 		}
 
-		return bean;
+		return resultbean;
 	}
 
 }

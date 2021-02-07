@@ -18,20 +18,21 @@ public class OraSearchWorkingHoursDao implements SearchWorkingHoursDao {
 	private Connection cn = null;
 	private PreparedStatement st = null;
 	private ResultSet rs = null;
+	ArrayList result = new ArrayList();
 
 	public OraSearchWorkingHoursDao() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	@Override
-	public SearchWorkingHoursBean workingHoursSearch(SearchWorkingHoursBean bean) {
+	public ArrayList workingHoursSearch(SearchWorkingHoursBean bean) {
 		// TODO 自動生成されたメソッド・スタブ
 
 		connector = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		cn = (Connection)connector.getConnection();
 
-		String sql = "SELECT * FROM time_sheets WHERE employeeid = ? AND to_char(work_day,'MM') = ?";
+		String sql = "SELECT * FROM time_select WHERE employeeid = ? AND month = ?";
 
 		try {
 
@@ -43,13 +44,15 @@ public class OraSearchWorkingHoursDao implements SearchWorkingHoursDao {
 			rs = st.executeQuery();
 
 			while(rs.next()) {
-				bean.setEmployeeId(rs.getString(1));
-				bean.setDate(rs.getString(2));
-				bean.setAttendance(rs.getString(3));
-				bean.setGooutTime(rs.getString(4));
-				bean.setReturnTime(rs.getString(5));
-				bean.setLeaveWork(rs.getString(6));
-
+				SearchWorkingHoursBean resultBean = new SearchWorkingHoursBean();
+				resultBean.setEmployeeId(rs.getString(1));
+				resultBean.setDate(rs.getString(2));
+				resultBean.setAttendance(rs.getString(3));
+				resultBean.setGooutTime(rs.getString(4));
+				resultBean.setReturnTime(rs.getString(5));
+				resultBean.setLeaveWork(rs.getString(6));
+				result.add(resultBean);
+				System.out.println("result:" + result);
 			}
 
 		}catch(SQLException e){
@@ -80,7 +83,7 @@ public class OraSearchWorkingHoursDao implements SearchWorkingHoursDao {
 			}
 		}
 
-		return bean;
+		return result;
 	}
 
 	@Override

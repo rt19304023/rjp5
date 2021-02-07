@@ -42,11 +42,11 @@ public class SearchWorkingHoursBean implements Serializable {
 		this.name = name;
 	}
 
-	public String getdepartmentName() {
+	public String getDepartmentName() {
 		return departmentName;
 	}
 
-	public void setdepartmentName(String departmentName) {
+	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
 	}
 

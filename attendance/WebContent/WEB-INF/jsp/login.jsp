@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>ログイン</h1>
+	<h3>${sessionScope.mes }</h3>
 		<form action="login" method="post">
 			社員番号：<input type="text" name="employeeid"/><br>
 			パスワード：<input type="text" name="pass"/><br><br>

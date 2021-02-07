@@ -12,5 +12,10 @@
 </head>
 <body>
 	<h1>勤務時間検索</h1>
+	<form action="search-hr" method="post">
+		社員番号：<input type="text" name="employeeid" value=${sessionScope.uid } />
+		検索する月：<input type="text" name="month" />
+		<input type="submit" value="検索">
+	</form>
 </body>
 </html>

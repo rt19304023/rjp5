@@ -11,6 +11,7 @@
 </head>
 
 <body>
+	<h1>管理者TOP画面</h1>
 	<p>社員番号</p><p>社員名</p>
 	<p><a href="regist-e">社員登録</a></p>
 	<p><a href="delete-e">社員削除</a></p>
