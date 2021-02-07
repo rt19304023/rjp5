@@ -63,10 +63,19 @@ WITH READ ONLY;
 
 CREATE OR REPLACE VIEW secret_select
 AS
-	SELECT secret.employeeid, birthday,secret_problem,secret_answer,department_code 
+	SELECT secret.employeeid as employeeid, TO_CHAR(birthday,'rr-MM-DD') as birthday,
+	secret_problem,secret_answer,department_code 
 	FROM employee_secret secret
 		JOIN employee_list list
 		ON secret.employeeid = list.employeeid
+WITH READ ONLY;
+
+CREATE OR REPLACE VIEW time_select
+AS
+	SELECT employeeid,TO_CHAR(work_day,'yy-MM-dd') as work_day,TO_CHAR(attendance,'HH24:MI') as attendance,
+	TO_CHAR(goouttime,'HH24:MI') as goouttime,TO_CHAR(returntime,'HH24:MI') as returntime,TO_CHAR(leaveWork,'HH24:MI') as leaveWork,TO_CHAR(work_day,'MM') as month
+	FROM time_sheets
+	ORDER BY month asc, employeeid asc,work_day asc
 WITH READ ONLY;
 
 INSERT INTO department values(0001,'管理者');
@@ -140,6 +149,8 @@ INSERT INTO time_sheets VALUES(1003,TO_DATE('2020/12/04','YYYY/MM/DD'),TO_DATE('
 INSERT INTO time_sheets VALUES(1004,TO_DATE('2020/12/04','YYYY/MM/DD'),TO_DATE('2020/12/04 09:00','YYYY/MM/DD HH24:MI'),TO_DATE('2020/12/04 12:00','YYYY/MM/DD HH24:MI'),TO_DATE('2020/12/04 13:00','YYYY/MM/DD HH24:MI'),TO_DATE('2020/12/04 18:00','YYYY/MM/DD HH24:MI'));
 INSERT INTO time_sheets VALUES(1005,TO_DATE('2020/12/04','YYYY/MM/DD'),TO_DATE('2020/12/04 09:00','YYYY/MM/DD HH24:MI'),TO_DATE('2020/12/04 12:00','YYYY/MM/DD HH24:MI'),TO_DATE('2020/12/04 13:00','YYYY/MM/DD HH24:MI'),TO_DATE('2020/12/04 18:00','YYYY/MM/DD HH24:MI'));
 INSERT INTO time_sheets VALUES(1006,TO_DATE('2020/12/04','YYYY/MM/DD'),TO_DATE('2020/12/04 09:00','YYYY/MM/DD HH24:MI'),TO_DATE('2020/12/04 12:00','YYYY/MM/DD HH24:MI'),TO_DATE('2020/12/04 13:00','YYYY/MM/DD HH24:MI'),TO_DATE('2020/12/04 18:00','YYYY/MM/DD HH24:MI'));
+
+INSERT INTO employee_secret VALUES(1003,'2000/12/23','テスト問題','テスト回答');
 
 SELECT employeeid, work_day,TO_CHAR(attendance,'HH24:MI'),TO_CHAR(goouttime,'HH24:MI'),TO_CHAR(returntime,'HH24:MI'),TO_CHAR(leaveWork,'HH24:MI') FROM time_sheets;
 
