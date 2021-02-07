@@ -7,7 +7,7 @@
 </head>
 <body>
 	<form method="post" name="out" action="logout">
-    	<a href="javascript:out.submit()">ログアウト</a>
+    	<a href="javascript:out.submit()"><button>ログアウト</button></a>
 	</form>
 </body>
 </html>

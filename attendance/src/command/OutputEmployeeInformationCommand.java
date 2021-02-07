@@ -18,7 +18,7 @@ public class OutputEmployeeInformationCommand extends AbstractCommand {
 
 		RequestContext req = getRequestContext();
 
-		String id = req.getParameter("employee")[0];
+		String id = req.getParameter("employeeid")[0];
 
 		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 

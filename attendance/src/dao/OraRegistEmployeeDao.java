@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import bean.OutputEmployeeInformationBean;
 import connector.Connector;
@@ -17,23 +18,24 @@ public class OraRegistEmployeeDao implements RegistEmployeeDao {
 	private Connection cn = null;
 	private PreparedStatement st = null;
 	private ResultSet rs = null;
+	private ArrayList user = new ArrayList();
 
 	public OraRegistEmployeeDao() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	@Override
-	public OutputEmployeeInformationBean employeeRegist(OutputEmployeeInformationBean bean) {
+	public ArrayList employeeRegist(OutputEmployeeInformationBean bean) {
 		// TODO 自動生成されたメソッド・スタブ
 
 		connector = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		cn = connector.getConnection();
 
-		String sql = "INSERT into employee_list(name,pass,cardnumber,department_code,employeeid)";
+		String sql = "INSERT into employee_list(name,pass,cardid,department_code,employeeid)";
 		String sql2 = " values(?,?,?,?,employeeid.NEXTVAL)";
 
-		String select = "SELECT * FROM employee_list WHERE cardnumber = ?";
+		String select = "SELECT * FROM employee_list WHERE cardid = ?";
 
 		try {
 
@@ -54,13 +56,15 @@ public class OraRegistEmployeeDao implements RegistEmployeeDao {
 
 			rs = st.executeQuery();
 
-			rs.next();
-
-			bean.setEmployeeId(rs.getString(1));
-			bean.setName(rs.getString(2));
-			bean.setPass(rs.getString(3));
-			bean.setCardNumber(rs.getString(4));
-			bean.setDepartmentCode(rs.getString(5));
+			while(rs.next()) {
+				OutputEmployeeInformationBean resultBean = new OutputEmployeeInformationBean();
+				resultBean.setEmployeeId(rs.getString(1));
+				resultBean.setName(rs.getString(2));
+				resultBean.setPass(rs.getString(3));
+				resultBean.setCardNumber(rs.getString(4));
+				resultBean.setDepartmentCode(rs.getString(5));
+				user.add(resultBean);
+			}
 
 			cn.commit();
 
@@ -93,7 +97,7 @@ public class OraRegistEmployeeDao implements RegistEmployeeDao {
 			}
 		}
 
-		return bean;
+		return user;
 	}
 
 }

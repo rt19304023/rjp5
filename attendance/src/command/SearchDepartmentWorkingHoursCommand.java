@@ -22,15 +22,15 @@ public class SearchDepartmentWorkingHoursCommand extends AbstractCommand {
 		SearchDepartmentWorkingHoursBean bean = new SearchDepartmentWorkingHoursBean();
 
 		bean.setDepartmentCode(req.getParameter("departmentcode")[0]);
-		bean.setMonth(req.getParameter("month")[0]);
-
+		bean.setMonth((req.getParameter("year")[0] + "-" +req.getParameter("month")[0]).substring(2));
+		System.out.println(bean.getMonth());
 		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		SearchDepartmentWorkingHoursDao dao = (SearchDepartmentWorkingHoursDao)factory.getSearchDepartmentWorkingHoursDao();
 
 		res.setResult(dao.workingHoursSerch(bean));
 
-		res.setTarget("/");
+		res.setTarget("swh-by-dept-result");
 
 		System.out.println("TARGET:"+res.getTarget());
 

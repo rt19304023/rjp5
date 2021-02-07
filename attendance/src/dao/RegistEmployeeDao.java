@@ -1,9 +1,11 @@
 package dao;
 
+import java.util.ArrayList;
+
 import bean.OutputEmployeeInformationBean;
 
 public interface RegistEmployeeDao {
 
-	public OutputEmployeeInformationBean employeeRegist(OutputEmployeeInformationBean bean);
+	public ArrayList employeeRegist(OutputEmployeeInformationBean bean);
 
 }

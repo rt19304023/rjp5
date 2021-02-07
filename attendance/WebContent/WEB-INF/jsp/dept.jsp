@@ -8,14 +8,23 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<meta charset="UTF-8">
 	<title>経理部TOP画面</title>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 
 <body>
 	<h1>経理部TOP画面</h1>
-	<p>社員番号</p><p>社員名</p>
+		<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<p><a href="modify">勤務時間修正</a></p>
-	<p><a href="hours">勤務時間検索(部署)</a></p>
-	<p><a href="pass">パスワード変更</a></p>
+	<p><a href="dept">勤務時間検索(部署)</a></p>
+	<p><a href="question-c">パスワード変更</a></p>
 	<p><a href="hours">勤務時間検索</a></p>
 </body>
 </html>

@@ -15,13 +15,5 @@
 		<servlet-name>FrontServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<filter>
-		<filter-name>secret</filter-name>
-		<filter-class>SecretCheck</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>secret</filter-name>
-		<url-pattern>/login</url-pattern>
-	</filter-mapping>
 
 </web-app>

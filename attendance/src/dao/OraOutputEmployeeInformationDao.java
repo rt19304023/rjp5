@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import bean.OutputEmployeeInformationBean;
 import connector.Connector;
@@ -16,22 +17,23 @@ public class OraOutputEmployeeInformationDao implements OutputEmployeeInformatio
 	private Connection cn = null;
 	private PreparedStatement st = null;
 	private ResultSet rs = null;
+	private ArrayList Information = new ArrayList();
 
 	public OraOutputEmployeeInformationDao() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	@Override
-	public OutputEmployeeInformationBean employeeInFormationSelect(String employeeId) {
+	public ArrayList employeeInFormationSelect(String employeeId) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		OutputEmployeeInformationBean bean = new OutputEmployeeInformationBean();
+
 
 		Connector connect = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
 
 		cn = connect.getConnection();
 
-		String sql = "SELECT * FROM employee_list WHERE employeeid = ?";
+		String sql = "SELECT * FROM list_select WHERE employeeid = ?";
 
 		try {
 
@@ -41,12 +43,15 @@ public class OraOutputEmployeeInformationDao implements OutputEmployeeInformatio
 
 			rs = st.executeQuery();
 
-			rs.next();
-
-			bean.setEmployeeId(rs.getString(1));
-			bean.setName(rs.getString(2));
-			bean.setCardNumber(rs.getString(4));
-			bean.setDepartmentCode(rs.getString(5));
+			while(rs.next()){
+				OutputEmployeeInformationBean bean = new OutputEmployeeInformationBean();
+				bean.setEmployeeId(rs.getString(1));
+				bean.setName(rs.getString(2));
+				bean.setCardNumber(rs.getString(3));
+				bean.setDepartmentCode(rs.getString(4));
+				bean.setDepartmentName(rs.getString(5));
+				Information.add(bean);
+			}
 
 			cn.commit();
 
@@ -79,7 +84,7 @@ public class OraOutputEmployeeInformationDao implements OutputEmployeeInformatio
 		}
 
 
-		return bean;
+		return Information;
 	}
 
 }

@@ -22,10 +22,10 @@ RequestContext req = getRequestContext();
 
 		DeleteEmployeeDao dao = (DeleteEmployeeDao)factory.getDeleteEmployeeDao();
 
-		dao.employeeDelete(req.getParameter("employeeid")[0]);
+		res.setResult(dao.employeeDelete(req.getParameter("employeeid")[0]));
 
-		res.setTarget("/");
-		req.setInformation("mes", "削除完了");
+		res.setTarget("delete-result");
+		req.setInformation("mes", "社員の削除完了");
 
 		System.out.println("TARGET:"+res.getTarget());
 

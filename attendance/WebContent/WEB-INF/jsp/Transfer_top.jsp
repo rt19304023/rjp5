@@ -7,7 +7,7 @@
 </head>
 <body>
 	<form method="post" name="trans" action="trans-tt">
-    	<a href="javascript:trans.submit()">TOPへ</a>
+    	<a href="javascript:trans.submit()"><button>TOPへ</button></a>
 	</form>
 </body>
 </html>

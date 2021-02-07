@@ -9,13 +9,38 @@
 
 <meta charset="UTF-8">
 <title>社員登録完了</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#top").load("return_top");
+		});
+		$(function(){
+			$("#logout").load("out");
+		});
+	</script>
 </head>
 <body>
 	<h1>新規社員の登録が完了しました</h1>
-	<p>社員番号</p>
-	<p>氏名</p>
-	<p>新規パスワード</p>
+	<table border="1">
+		<tr>
+			<th>社員番号</th>
+			<th>氏名</th>
+			<th>パスワード</th>
+			<th>カードナンバー</th>
+			<th>部署コード</th>
+		</tr>
+		<c:forEach var="user" items="${result}" >
+			<tr>
+				<td>${user.employeeId }</td>
+				<td>${user.name }</td>
+				<td>${user.pass }</td>
+				<td>${user.cardNumber }</td>
+				<td>${user.departmentCode }</td>
+			</tr>
+		</c:forEach>
+	</table>
 
-	<a href="admin">管理画面TOPへ</a>
+	<div id="top"></div><br>
+	<div id="logout"></div>
 </body>
 </html>

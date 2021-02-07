@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import bean.SearchDepartmentWorkingHoursBean;
 import connector.Connector;
@@ -17,13 +18,14 @@ public class OraSearchDepartmentWorkingHoursDao implements SearchDepartmentWorki
 	private Connection cn = null;
 	private PreparedStatement st = null;
 	private ResultSet rs = null;
+	private ArrayList times = new ArrayList();
 
 	public OraSearchDepartmentWorkingHoursDao() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	@Override
-	public SearchDepartmentWorkingHoursBean workingHoursSerch(SearchDepartmentWorkingHoursBean bean) {
+	public  ArrayList workingHoursSerch(SearchDepartmentWorkingHoursBean bean) {
 		// TODO 自動生成されたメソッド・スタブ
 
 		connector = (Connector)ConnectorFactory.getConnector(ReadDBInformation.getDataBaseInfo("dbname"));
@@ -42,14 +44,14 @@ public class OraSearchDepartmentWorkingHoursDao implements SearchDepartmentWorki
 			rs = st.executeQuery();
 
 			while(rs.next()){
-
-				bean.setEmployeeId(rs.getString(1));
-				bean.setName(rs.getString(2));
-				bean.setDepartmentCode(rs.getString(3));
-				bean.setDepartmentName(rs.getString(4));
-				bean.setMonth(rs.getString(5));
-				bean.setWorkTime(rs.getString(6));
-
+				SearchDepartmentWorkingHoursBean resultBean = new SearchDepartmentWorkingHoursBean();
+				resultBean.setEmployeeId(rs.getString(1));
+				resultBean.setName(rs.getString(2));
+				resultBean.setDepartmentCode(rs.getString(3));
+				resultBean.setDepartmentName(rs.getString(4));
+				resultBean.setMonth(rs.getString(5));
+				resultBean.setWorkTime(rs.getString(6));
+				times.add(resultBean);
 			}
 			cn.commit();
 		}catch(SQLException e){
@@ -81,7 +83,7 @@ public class OraSearchDepartmentWorkingHoursDao implements SearchDepartmentWorki
 		}
 
 
-		return bean;
+		return times;
 	}
 
 }

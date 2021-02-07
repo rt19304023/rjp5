@@ -12,10 +12,10 @@
 </head>
 <body>
 	<h1>社員新規登録</h1>
-	<form action="login" method="post">
+	<form action="regist-er" method="post">
 		社員名：<input type="text" name="name"/><br>
 		カード番号：<input type="text" name="cardnumber"/><br>
-		部署コード：<input type="tel" name="departmentcode" maxlength="4"/><br><br>
+		部署コード：<input type="number" name="departmentcode" maxlength="4"/><br><br>
 		<input type="submit" value="登録">
 	</form>
 </body>

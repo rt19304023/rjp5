@@ -11,9 +11,9 @@
 </head>
 <body>
 <div class="search">
-		<form name="empsearch" method="post" action="outputEmployeeInformation" onSubmit="return check()">
+		<form name="empsearch" method="post" action="output-er" onSubmit="return check()">
   	 	<p>社員情報検索</p>
-    	社員番号：<input type="tel" name="employeeid" maxlength="7"/><br>
+    	社員番号：<input type="number" name="employeeid" maxlength="7"/><br>
     	<input type="submit" value="検索">
   	</form>
 </div>

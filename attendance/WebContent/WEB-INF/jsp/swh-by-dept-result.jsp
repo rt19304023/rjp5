@@ -12,5 +12,24 @@
 </head>
 <body>
 	<h1>勤務時間検索結果(部署)</h1>
+	<table border="1">
+		<tr><th>部署番号</th>
+			<th>部署名</th>
+			<th>年-月</th>
+			<th>社員番号</th>
+			<th>名前</th>
+			<th>勤務時間</th>
+		</tr>
+		<c:forEach var="times" items="${result}">
+			<tr>
+				<td>${times.departmentCode }</td>
+				<td>${times.departmentName }</td>
+				<td>${times.month }</td>
+				<td>${times.employeeId }</td>
+				<td>${times.name }</td>
+				<td>${times.workTime }</td>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

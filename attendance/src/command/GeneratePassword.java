@@ -4,15 +4,18 @@ import java.util.Random;
 
 public class GeneratePassword {
 
+
 	public GeneratePassword() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
+
 	public static String generatePassword(int num) {
+
+		String sb="";
 
 		Random rnd = new Random();
 
-		String sb = null;
 
 		for(int i = 0; i < num ;i++) {
 

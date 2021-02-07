@@ -11,8 +11,8 @@
 </head>
 <body>
 	<h1>社員情報削除</h1>
-	<form action="login" method="post">
-		社員番号：<input type="tel" name="employeeid" maxlength="7"/><br><br>
+	<form action="delete-er" method="post">
+		社員番号：<input type="number" name="employeeid" maxlength="7"/><br><br>
 		<input type="submit" value="削除">
 	</form>
 </body>

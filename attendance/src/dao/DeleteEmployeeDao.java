@@ -1,7 +1,9 @@
 package dao;
 
+import java.util.ArrayList;
+
 public interface DeleteEmployeeDao {
 
-	public void employeeDelete(String employeeId);
+	public ArrayList employeeDelete(String employeeId);
 
 }
