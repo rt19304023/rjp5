@@ -28,13 +28,13 @@ CREATE TABLE employee_secret
 );
 CREATE TABLE assignment
 (
-	employeeid NUMBER(7) CONSTRAINT assignment_id_pk PRIMARY KEY REFERENCES employee_list(employeeid),
+	employeeid NUMBER(7) CONSTRAINT assignment_id_pk PRIMARY KEY REFERENCES employee_list(employeeid) ON DELETE CASCADE,
 	name VARCHAR2(30) NOT NULL,
 	depertment_code NUMBER(4) NOT NULL CONSTRAINT assignment_dcode_fk REFERENCES department(code) ON DELETE CASCADE
 );
 CREATE TABLE time_sheets
 (
-	employeeid NUMBER(7) CONSTRAINT time_id_fk  REFERENCES employee_list(employeeid),
+	employeeid NUMBER(7) CONSTRAINT time_id_fk  REFERENCES employee_list(employeeid) ON DELETE CASCADE,
 	work_day date,
 	attendance date,
 	goouttime date,
@@ -44,9 +44,9 @@ CREATE TABLE time_sheets
 
 CREATE OR REPLACE VIEW time_per_month
 AS
-	SELECT employeeid, TO_CHAR(work_day,'RR/MM') as month, SUM(((leaveWork - attendance) - (returntime - goouttime)) * 24) as attendant
-	FROM time_sheets GROUP BY employeeid, TO_CHAR(work_day,'RR/MM')
-	ORDER BY employeeid, TO_CHAR(work_day,'RR/MM')
+	SELECT employeeid, TO_CHAR(work_day,'RR-MM') as month, SUM(((leaveWork - attendance) - (returntime - goouttime)) * 24) as attendant
+	FROM time_sheets GROUP BY employeeid, TO_CHAR(work_day,'RR-MM')
+	ORDER BY employeeid, TO_CHAR(work_day,'RR-MM')
 WITH READ ONLY;
 
 CREATE OR REPLACE VIEW dept_total_time
@@ -76,6 +76,13 @@ AS
 	TO_CHAR(goouttime,'HH24:MI') as goouttime,TO_CHAR(returntime,'HH24:MI') as returntime,TO_CHAR(leaveWork,'HH24:MI') as leaveWork,TO_CHAR(work_day,'MM') as month
 	FROM time_sheets
 	ORDER BY month asc, employeeid asc,work_day asc
+WITH READ ONLY;
+
+CREATE OR REPLACE VIEW list_select
+AS
+	SELECT employee_list.employeeid as employeeid,employee_list.name as name,
+	cardid, department_code, department.name as department_name
+	FROM employee_list JOIN department ON employee_list.department_code = department.code
 WITH READ ONLY;
 
 INSERT INTO department values(0001,'管理者');
