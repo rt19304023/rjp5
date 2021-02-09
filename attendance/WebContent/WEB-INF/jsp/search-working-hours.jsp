@@ -9,13 +9,24 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#top").load("return_top");
+		});
+		$(function(){
+			$("#logout").load("out");
+		});
+	</script>
 </head>
 <body>
 	<h1>勤務時間検索</h1>
 	<form action="search-hr" method="post">
-		社員番号：<input type="text" name="employeeid" value=${sessionScope.uid } />
+		社員番号：<input type="text" name="employeeid" value=${sessionScope.uid } readonly />
 		検索する月：<input type="text" name="month" />
 		<input type="submit" value="検索">
 	</form>
+	<div id="top"></div><br>
+	<div id="logout"></div>
 </body>
 </html>

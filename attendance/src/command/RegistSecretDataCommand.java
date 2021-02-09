@@ -6,6 +6,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.RegistSecretDataDao;
+import jsp.ReadPagePath;
 
 public class RegistSecretDataCommand extends AbstractCommand {
 
@@ -33,7 +34,7 @@ public class RegistSecretDataCommand extends AbstractCommand {
 
 		dao.secretDataRegist(bean);
 
-		res.setTarget("question-regist-result");
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 		req.setInformation("contents", "シークレット情報登録完了");
 
 		System.out.println("TARGET:"+res.getTarget());

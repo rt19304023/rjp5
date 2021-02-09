@@ -9,6 +9,15 @@
 
 <meta charset="UTF-8">
 <title>社員追加</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#top").load("return_top");
+		});
+		$(function(){
+			$("#logout").load("out");
+		});
+	</script>
 </head>
 <body>
 	<h1>社員新規登録</h1>
@@ -18,5 +27,7 @@
 		部署コード：<input type="number" name="departmentcode" maxlength="4"/><br><br>
 		<input type="submit" value="登録">
 	</form>
+	<div id="top"></div><br>
+	<div id="logout"></div>
 </body>
 </html>

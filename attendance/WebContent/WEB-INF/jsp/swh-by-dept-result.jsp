@@ -9,6 +9,15 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#top").load("return_top");
+		});
+		$(function(){
+			$("#logout").load("out");
+		});
+	</script>
 </head>
 <body>
 	<h1>勤務時間検索結果(部署)</h1>
@@ -31,5 +40,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<div id="top"></div><br>
+	<div id="logout"></div>
 </body>
 </html>

@@ -5,6 +5,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.OutputEmployeeInformationDao;
+import jsp.ReadPagePath;
 
 public class OutputEmployeeInformationCommand extends AbstractCommand {
 
@@ -26,7 +27,7 @@ public class OutputEmployeeInformationCommand extends AbstractCommand {
 
 		res.setResult(dao.employeeInFormationSelect(id));
 
-		res.setTarget("emp-search-result");
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 
 		req.setInformation("contents", "社員情報");
 

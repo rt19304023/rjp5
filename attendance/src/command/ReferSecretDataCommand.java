@@ -6,6 +6,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.ReferSecretDataDao;
+import jsp.ReadPagePath;
 
 public class ReferSecretDataCommand extends AbstractCommand {
 
@@ -50,13 +51,13 @@ public class ReferSecretDataCommand extends AbstractCommand {
 				}else {
 					key = "mes";
 					message = "秘密の問題または回答が違います";
-					target = "question-chack";
+					target = ReadPagePath.getPath(req.getCommandPath());
 				}
 			}else {
 				System.out.println(bean.getBirthday());
 				key = "mes";
 				message = "誕生日が違います";
-				target = "question-chack";
+				target = ReadPagePath.getPath(req.getCommandPath());
 			}
 		}else {
 			key = "secret";

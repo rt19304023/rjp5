@@ -20,7 +20,6 @@
 	</script>
 </head>
 <body>
-	<div id="logout"></div>
 	<h1>勤務時間検索結果</h1>
 	<table border="1">
 		<tr>
@@ -40,8 +39,8 @@
 			</tr>
 		</c:forEach>
 	</table>
-
-	<div id="top"></div>
+	<div id="top"></div><br>
+	<div id="logout"></div>
 
 </body>
 </html>

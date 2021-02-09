@@ -6,6 +6,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.RegistEmployeeDao;
+import jsp.ReadPagePath;
 
 public class RegistEmployeeCommand extends AbstractCommand {
 
@@ -31,7 +32,7 @@ public class RegistEmployeeCommand extends AbstractCommand {
 		RegistEmployeeDao dao = (RegistEmployeeDao)factory.getRegistEmployeeDao();
 
 		res.setResult(dao.employeeRegist(bean));
-		res.setTarget("regist-result");
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 
 		req.setInformation("contents", "社員登録完了");
 

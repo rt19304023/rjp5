@@ -6,6 +6,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.SearchDepartmentWorkingHoursDao;
+import jsp.ReadPagePath;
 
 public class SearchDepartmentWorkingHoursCommand extends AbstractCommand {
 
@@ -30,7 +31,7 @@ public class SearchDepartmentWorkingHoursCommand extends AbstractCommand {
 
 		res.setResult(dao.workingHoursSerch(bean));
 
-		res.setTarget("swh-by-dept-result");
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 
 		System.out.println("TARGET:"+res.getTarget());
 

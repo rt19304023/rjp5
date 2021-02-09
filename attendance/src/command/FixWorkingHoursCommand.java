@@ -6,6 +6,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.FixWorkingHoursDao;
+import jsp.ReadPagePath;
 
 public class FixWorkingHoursCommand extends AbstractCommand {
 
@@ -22,7 +23,7 @@ public class FixWorkingHoursCommand extends AbstractCommand {
 		SearchWorkingHoursBean bean = new SearchWorkingHoursBean();
 
 		bean.setEmployeeId(req.getParameter("employeeid")[0]);
-		bean.setDate(req.getParameter("month")[0] + "-" + req.getParameter("day")[0]);
+		bean.setDate(req.getParameter("date")[0]);
 		bean.setAttendance(req.getParameter("attendance")[0]);
 		bean.setGooutTime(req.getParameter("goout")[0]);
 		bean.setReturnTime(req.getParameter("returntime")[0]);
@@ -39,7 +40,7 @@ public class FixWorkingHoursCommand extends AbstractCommand {
 
 		req.setInformation("mes", message);
 
-		res.setTarget("/");
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 
 		System.out.println("TARGET:" + res.getTarget());
 

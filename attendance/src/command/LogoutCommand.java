@@ -2,6 +2,7 @@ package command;
 
 import context.RequestContext;
 import context.ResponseContext;
+import jsp.ReadPagePath;
 
 public class LogoutCommand extends AbstractCommand {
 
@@ -21,7 +22,7 @@ public class LogoutCommand extends AbstractCommand {
 
 		req.invalidateSession();
 
-		res.setTarget("logout-result");
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 
 		return res;
 	}

@@ -5,12 +5,12 @@ import connector.ReadDBInformation;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
-import dao.OraSearchWorkingHoursDao;
+import dao.SearchModifyHoursDao;
 import jsp.ReadPagePath;
 
-public class SearchWorkingHoursCommand extends AbstractCommand {
+public class SearchModifyHoursCommand extends AbstractCommand {
 
-	public SearchWorkingHoursCommand() {
+	public SearchModifyHoursCommand() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
@@ -24,13 +24,16 @@ public class SearchWorkingHoursCommand extends AbstractCommand {
 
 		bean.setEmployeeId(req.getParameter("employeeid")[0]);
 		System.out.println("EMPLOYEEID:" + req.getParameter("employeeid")[0]);
-		bean.setMonth(req.getParameter("month")[0]);
-		System.out.println("MONTH:" + req.getParameter("month")[0]);
+		bean.setDate(req.getParameter("year")[0] + "-" + req.getParameter("month")[0] + "-" + req.getParameter("day")[0]);
+
+
+
+
 		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 
-		OraSearchWorkingHoursDao dao  = (OraSearchWorkingHoursDao)factory.getSearchWorkingHoursDao();
+		SearchModifyHoursDao dao = (SearchModifyHoursDao)factory.getSearchModifyHoursDao();
 
-		res.setResult(dao.workingHoursSearch(bean));
+		res.setResult(dao.modifyHoursSearch(bean));
 
 		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 

@@ -5,6 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>秘密の質問を登録</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#top").load("return_top");
+		});
+		$(function(){
+			$("#logout").load("out");
+		});
+	</script>
 </head>
 <body>
 	<h1>秘密の質問を登録</h1>
@@ -17,5 +26,7 @@
 		<p>秘密の質問：<input type="text" name="problem" /></p>
 		<p>回答：<input type="text" name="answer" /></p>
 	</form>
+	<div id="top"></div><br>
+	<div id="logout"></div>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登録完了</title>
+<title>社員の時間を検索</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
 		$(function(){
@@ -16,8 +16,14 @@
 	</script>
 </head>
 <body>
-	<h1>秘密の質問登録完了</h1>
-	<a href="pass"><button>パスワード変更</button></a>
+	<h1>社員の時間を検索</h1>
+	<form action="modify" method="POST">
+		社員番号：<input type="text" name="employeeid" />
+		年：<input type="text" name="year" />
+		月：<input type="text" name="month" />
+		日：<input type="text" name="day" />
+		<input type="submit" value="検索" />
+	</form>
 	<div id="top"></div><br>
 	<div id="logout"></div>
 </body>

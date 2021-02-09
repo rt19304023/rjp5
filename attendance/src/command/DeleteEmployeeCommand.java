@@ -5,6 +5,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.DeleteEmployeeDao;
+import jsp.ReadPagePath;
 
 public class DeleteEmployeeCommand extends AbstractCommand {
 
@@ -24,7 +25,7 @@ RequestContext req = getRequestContext();
 
 		res.setResult(dao.employeeDelete(req.getParameter("employeeid")[0]));
 
-		res.setTarget("delete-result");
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 		req.setInformation("mes", "社員の削除完了");
 
 		System.out.println("TARGET:"+res.getTarget());

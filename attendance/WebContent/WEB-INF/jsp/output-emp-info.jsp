@@ -8,6 +8,15 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>社員情報の検索</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#top").load("return_top");
+		});
+		$(function(){
+			$("#logout").load("out");
+		});
+	</script>
 </head>
 <body>
 <div class="search">
@@ -17,5 +26,7 @@
     	<input type="submit" value="検索">
   	</form>
 </div>
+<div id="top"></div><br>
+<div id="logout"></div>
 </body>
 </html>

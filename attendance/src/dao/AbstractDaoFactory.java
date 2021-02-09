@@ -52,5 +52,6 @@ public abstract class AbstractDaoFactory {
 	public abstract SearchWorkingHoursDao getSearchWorkingHoursDao();
 	public abstract RegistSecretDataDao getRegistSecretDataDao();
 	public abstract ReferSecretDataDao getReferSecretDataDao();
+	public abstract SearchModifyHoursDao getSearchModifyHoursDao();
 
 }

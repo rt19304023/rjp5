@@ -72,4 +72,10 @@ public class OraDaoFactory extends AbstractDaoFactory {
 		return new OraReferSecretDataDao();
 	}
 
+	@Override
+	public SearchModifyHoursDao getSearchModifyHoursDao() {
+		// TODO 自動生成されたメソッド・スタブ
+		return new OraSearchModifyHoursDao();
+	}
+
 }

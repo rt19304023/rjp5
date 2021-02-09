@@ -6,6 +6,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.ChangePasswordDao;
+import jsp.ReadPagePath;
 
 public class ChangePasswordCommand extends AbstractCommand {
 
@@ -30,9 +31,8 @@ public class ChangePasswordCommand extends AbstractCommand {
 
 		dao.passChange(id,pass);
 
-		res.setTarget("change-pass-result");
-
-		req.setInformation("contents", "パスワード登録完了");
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
+		req.setInformation("contents", "パスワード変更完了");
 
 		System.out.println("TARGET:"+res.getTarget());
 

@@ -86,12 +86,4 @@ public class OraSearchWorkingHoursDao implements SearchWorkingHoursDao {
 		return result;
 	}
 
-	@Override
-	public ArrayList workingHoursSearch(SearchWorkingHoursBean bean, String day) {
-		// TODO 自動生成されたメソッド・スタブ
-
-
-		return null;
-	}
-
 }

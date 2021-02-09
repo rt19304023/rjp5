@@ -6,6 +6,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.ChangeRegistInformationDao;
+import jsp.ReadPagePath;
 
 public class ChangeRegistInformationCommand extends AbstractCommand {
 
@@ -18,10 +19,13 @@ public class ChangeRegistInformationCommand extends AbstractCommand {
 		// TODO 自動生成されたメソッド・スタブ
 
 		RequestContext req = getRequestContext();
+		System.out.println("REQ:" + req);
 
 		OutputEmployeeInformationBean bean = new OutputEmployeeInformationBean();
 
-		bean.setEmployeeId(req.getParameter("emlpoyeeid")[0]);
+		System.out.println(bean);
+
+		bean.setEmployeeId(req.getParameter("employeeid")[0]);
 		bean.setName(req.getParameter("name")[0]);
 		bean.setCardNumber(req.getParameter("cardnumber")[0]);
 		bean.setDepartmentCode(req.getParameter("depertmentcode")[0]);
@@ -36,7 +40,7 @@ public class ChangeRegistInformationCommand extends AbstractCommand {
 
 		req.setInformation("mes", message);
 
-		res.setTarget("/");
+		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 
 		System.out.println("TARGET:" + res.getTarget());
 

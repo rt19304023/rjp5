@@ -8,6 +8,15 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<meta charset="UTF-8">
 	<title>管理者TOP画面</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#top").load("return_top");
+		});
+		$(function(){
+			$("#logout").load("out");
+		});
+	</script>
 	<style>
 		*{
 			text-align: center;
@@ -25,9 +34,11 @@
 	<p><a href="regist-e">社員登録</a></p>
 	<p><a href="delete-e">社員削除</a></p>
 	<p><a href="output">社員情報検索</a></p>
-	<p><a href="change-i">社員登録内容変更</a></p>
+	<p><a href="search-i">社員登録内容変更</a></p>
 	<p><a href="question-c">パスワード変更</a></p>
 	<p><a href="hours">勤務時間検索</a></p>
+	<div id="top"></div><br>
+	<div id="logout"></div>
 </body>
 </html>
 

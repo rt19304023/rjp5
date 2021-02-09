@@ -49,11 +49,11 @@ public class LoginCommand extends AbstractCommand {
 
 			}else {
 				message = "パスワードが違います";
-				target = "login";
+				target = ReadPagePath.getPath(req.getCommandPath());
 			}
 		}else {
 			message = "社員番号が違います";
-			target = "login";
+			target = ReadPagePath.getPath(req.getCommandPath());
 		}
 
 

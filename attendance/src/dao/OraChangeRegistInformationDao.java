@@ -68,26 +68,30 @@ public class OraChangeRegistInformationDao implements ChangeRegistInformationDao
 
 	public void updateList() throws SQLException{
 
-		String sql ="UPDATE employee_list SET employeeid = ?, name = ?, cardnumber = ?, department_code = ?";
+		String sql ="UPDATE employee_list SET name = ?, cardid = ?, department_code = ? WHERE employeeid = ?";
 
 		st = cn.prepareStatement(sql);
 
-		st.setString(1, bean.getEmployeeId());
-		st.setString(2, bean.getName());
-		st.setString(3, bean.getCardNumber());
-		st.setString(4, bean.getDepartmentCode());
-
+		st.setString(1, bean.getName());
+		st.setString(2, bean.getCardNumber());
+		st.setString(3, bean.getDepartmentCode());
+		st.setString(4, bean.getEmployeeId());
+		System.out.println(bean.getName() + "," +bean.getCardNumber());
+		System.out.println(bean.getDepartmentCode() + "," +bean.getEmployeeId());
 		st.executeUpdate();
-
 	}
 
 	public void updateAssignment() throws SQLException{
 
-		String sql = "UPDATE assignment = employeeid = ?, name = ? department_code = ?";
+		String sql = "UPDATE assignment SET name = ?, department_code = ? WHERE employeeid = ?";
 
-		st.setString(1, bean.getEmployeeId());
-		st.setString(2, bean.getName());
-		st.setString(3, bean.getDepartmentCode());
+		st = cn.prepareStatement(sql);
+
+		st.setString(1, bean.getName());
+		st.setString(2, bean.getDepartmentCode());
+		st.setString(3, bean.getEmployeeId());
+		System.out.println(bean.getName());
+		System.out.println(bean.getDepartmentCode() + "," +bean.getEmployeeId());
 
 		st.executeUpdate();
 
