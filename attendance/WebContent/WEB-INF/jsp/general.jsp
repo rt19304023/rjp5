@@ -7,7 +7,7 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<meta charset="UTF-8">
-	<title>管理者TOP画面</title>
+	<title>${sessionScope.dname }TOP画面</title>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
 		$(function(){
@@ -28,7 +28,7 @@
 </head>
 
 <body>
-	<h1>TOP画面</h1>
+	<h1>${sessionScope.dname }TOP画面</h1>
 		<p>社員番号: ${sessionScope.uid }
 		社員名: ${sessionScope.name }</p>
 	<p><a href="question-c">パスワード変更</a></p>

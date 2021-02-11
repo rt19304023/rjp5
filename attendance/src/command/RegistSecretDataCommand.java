@@ -24,7 +24,7 @@ public class RegistSecretDataCommand extends AbstractCommand {
 		ReferSecretDataBean bean = new ReferSecretDataBean();
 
 		bean.setId(req.getParameter("id")[0]);
-		bean.setBirthday(req.getParameter("year")[0] + "/" + req.getParameter("month")[0] + "/" + req.getParameter("day")[0]);
+		bean.setBirthday(req.getParameter("year")[0] + "-" + req.getParameter("month")[0] + "-" + req.getParameter("day")[0]);
 		bean.setSecretProblem(req.getParameter("problem")[0]);
 		bean.setSecretAnswer(req.getParameter("answer")[0]);
 
@@ -34,6 +34,7 @@ public class RegistSecretDataCommand extends AbstractCommand {
 
 		dao.secretDataRegist(bean);
 
+		req.setInformation("scode", "1");
 		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 		req.setInformation("contents", "シークレット情報登録完了");
 

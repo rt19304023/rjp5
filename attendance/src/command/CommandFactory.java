@@ -21,6 +21,7 @@ public class CommandFactory {
 		Object command;
 
 		try {
+			System.out.println(req.getCommandPath());
 			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("property/command.properties"));
 			name = prop.getProperty(req.getCommandPath());
 

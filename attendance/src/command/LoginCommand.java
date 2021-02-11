@@ -46,6 +46,8 @@ public class LoginCommand extends AbstractCommand {
 				req.setInformation("token", token);
 				req.setInformation("uid", employeeId);
 				req.setInformation("name", bean.getName());
+				req.setInformation("dname", bean.getDeptName());
+				req.setInformation("scode", bean.getSecretCode());
 
 			}else {
 				message = "パスワードが違います";

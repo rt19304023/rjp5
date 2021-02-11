@@ -17,7 +17,6 @@
 </head>
 <body>
 	<h1>秘密の質問登録完了</h1>
-	<a href="pass"><button>パスワード変更</button></a>
 	<div id="top"></div><br>
 	<div id="logout"></div>
 </body>

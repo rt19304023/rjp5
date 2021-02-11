@@ -16,6 +16,8 @@ public class TransferTopCommand extends AbstractCommand {
 
 		RequestContext req = getRequestContext();
 
+		System.out.println("TransferTopCommand:" + req.getInformation("code"));
+
 		res.setTarget(ReadPagePath.getPath(req.getInformation("code")));
 
 		System.out.println("TARGET:" + res.getTarget());

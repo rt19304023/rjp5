@@ -54,6 +54,7 @@ public class OraSearchWorkingHoursDao implements SearchWorkingHoursDao {
 				result.add(resultBean);
 				System.out.println("result:" + result);
 			}
+			cn.commit();
 
 		}catch(SQLException e){
 			try{

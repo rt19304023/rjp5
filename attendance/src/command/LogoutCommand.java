@@ -22,6 +22,8 @@ public class LogoutCommand extends AbstractCommand {
 
 		req.invalidateSession();
 
+		System.out.println("LOGOUT:" + req.getCommandPath());
+
 		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 
 		return res;

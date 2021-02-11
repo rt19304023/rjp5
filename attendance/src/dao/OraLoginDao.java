@@ -32,9 +32,7 @@ public class OraLoginDao implements LoginDao {
 
 		cn = connector.getConnection();
 
-		System.out.println("SELECT前");
-
-		String sql ="SELECT employeeid,pass,department_code, name FROM employee_list WHERE employeeid = ?";
+		String sql ="SELECT * FROM login_select WHERE employeeid = ?";
 
 		try {
 
@@ -44,16 +42,18 @@ public class OraLoginDao implements LoginDao {
 
 			rs = st.executeQuery();
 
-			if(rs == null)
-				System.out.println("中身がない");
-
 			while(rs.next()) {
 				bean.setEmployeeId(rs.getString(1));
-				bean.setPass(rs.getString(2));
-				bean.setCode(rs.getString(3));
-				bean.setName(rs.getString(4));
+				bean.setName(rs.getString(2));
+				bean.setPass(rs.getString(3));
+				bean.setCode(rs.getString(4));
+				bean.setDeptName(rs.getString(5));
+				bean.setSecretCode(rs.getString(6));
+
 				System.out.println(bean);
 			}
+
+			cn.commit();
 
 		}catch(SQLException e){
 			try{

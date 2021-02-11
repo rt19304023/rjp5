@@ -8,6 +8,8 @@ public class LoginBean implements Serializable {
 	private String name;
 	private String code;
 	private String pass;
+	private String secretCode;
+	private String deptName;
 
 	public LoginBean() {
 		// TODO 自動生成されたコンストラクター・スタブ
@@ -43,6 +45,22 @@ public class LoginBean implements Serializable {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	public String getSecretCode() {
+		return secretCode;
+	}
+
+	public void setSecretCode(String secretCode) {
+		this.secretCode = secretCode;
+	}
+
+	public String getDeptName() {
+		return deptName;
+	}
+
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
 	}
 
 }

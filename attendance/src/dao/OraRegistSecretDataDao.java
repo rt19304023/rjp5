@@ -28,8 +28,9 @@ public class OraRegistSecretDataDao implements RegistSecretDataDao {
 
 		cn = connector.getConnection();
 
-		String sql = "INSERT INTO employee_secret SET employeeid = ?, birthday = ?, secretproblem = ?, secretanswer = ?";
+		String sql = "INSERT INTO employee_secret VALUES(?,TO_DATE(?,'RRRR-MM-DD'),?,?)";
 
+		String sql2 = "UPDATE employee_list SET secret_code = 1 WHERE employeeid = ?";
 		try {
 
 			st = cn.prepareStatement(sql);
@@ -40,6 +41,12 @@ public class OraRegistSecretDataDao implements RegistSecretDataDao {
 			st.setString(4, bean.getSecretAnswer());
 
 			st.executeUpdate();
+
+			st = cn.prepareStatement(sql2);
+
+			st.setString(1, bean.getId());
+
+			st.execute();
 
 			cn.commit();
 

@@ -15,5 +15,24 @@
 		<servlet-name>FrontServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	<filter>
+		<filter-name>SecretCheck</filter-name>
+		<filter-class>SecretCheck</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SecretCheck</filter-name>
+		<url-pattern>/*/admin.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecretCheck</filter-name>
+		<url-pattern>/*/dept.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>SecretCheck</filter-name>
+		<url-pattern>/WEB-INF/jsp/general.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
 
 </web-app>
