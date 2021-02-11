@@ -11,3 +11,5 @@ DROP TABLE time_sheets CASCADE CONSTRAINTS;
 
 DROP SEQUENCE employeeid;
 
+commit;
+

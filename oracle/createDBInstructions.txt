@@ -1,0 +1,5 @@
+
+勤怠管理システム用データベースTable作成方法
+2.openSqlplus.bat - ショートカットを起動
+3.sys as sysdba のパスワードを入力
+4.@ createAttendance.sql　を実行

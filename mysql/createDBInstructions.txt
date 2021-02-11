@@ -1,0 +1,6 @@
+
+勤怠管理システム用データベースTable作成方法
+1.作成したいデータベースのフォルダを開く
+2.openSqlplus.bat - ショートカットを起動
+3.orclのパスワードを入力
+4.@ createAttendance.sql　を実行
