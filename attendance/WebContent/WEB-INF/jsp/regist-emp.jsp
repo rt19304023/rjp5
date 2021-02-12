@@ -25,17 +25,17 @@
 	<h1>社員新規登録</h1>
 	<div class="container">
 		<form action="regist-er" method="post">
-			<div class="form-group">
+			<div class="form-group row">
 				<label>社員名 </label> <input type="text" name="name"
-					class=”form-control” />
+					class="form-control" style="width:500px;"/>
 			</div>
-			<div class="form-group">
+			<div class="form-group row">
 				<label>カード番号</label> <input type="text" name="cardnumber"
-					class=”form-control” />
+					class="form-control" style="width:500px;" />
 			</div>
-			<div class="form-group">
+			<div class="form-group row">
 				<label>部署コード</label> <input type="number" name="departmentcode"
-					maxlength="4" min="1" max="12" class=”form-control” />
+					maxlength="4" min="1" max="12" class="form-control" style="width:150px;" />
 			</div>
 			<br>
 			<div class="form-group">

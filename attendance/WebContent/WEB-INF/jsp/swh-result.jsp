@@ -21,7 +21,7 @@
 </head>
 <body>
 	<h1>勤務時間検索結果</h1>
-	<table border="1">
+	<table border="1" class="table table-striped">
 		<tr>
 			<th>日付</th>
 			<th>出勤時間</th>

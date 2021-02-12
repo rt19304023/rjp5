@@ -21,11 +21,19 @@
 </head>
 <body>
 	<h1>勤務時間検索</h1>
+	<div class="container">
 	<form action="search-hr" method="post">
-		社員番号：<input type="text" name="employeeid" value=${sessionScope.uid } readonly />
-		検索する月：<input type="text" name="month" />
-		<input type="submit" value="検索">
+	<div class="form-group">
+		<label>社員番号</label>
+		<input type="text" name="employeeid" value=${sessionScope.uid } readonly />
+	</div>
+	<div class="form-group">
+		<label>検索する月</label>
+		<input type="text" name="month" />
+	</div>
+		<input type="submit" value="検索"  class="btn btn-primary">
 	</form>
+	</div>
 	<div id="top"></div><br>
 	<div id="logout"></div>
 </body>
