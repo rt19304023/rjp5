@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
@@ -19,7 +20,7 @@
 </head>
 <body>
 	<h1>社員情報</h1>
-	<table border="1">
+	<table border="1" class="table table-striped">
 		<tr>
 			<th>社員番号</th>
 			<th>名前</th>

@@ -21,7 +21,7 @@
 </head>
 <body>
 	<h1>新規社員の登録が完了しました</h1>
-	<table border="1">
+	<table border="1"  class="table table-striped">
 		<tr>
 			<th>社員番号</th>
 			<th>氏名</th>
