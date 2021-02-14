@@ -35,7 +35,7 @@
 			</div>
 			<div class="form-group row">
 				<label>部署コード</label> <input type="number" name="departmentcode"
-					maxlength="4" min="1" max="12" class="form-control" style="width:150px;" />
+					maxlength="4" min="1" max="12" class="form-control" style="width:80px;" />
 			</div>
 			<br>
 			<div class="form-group">

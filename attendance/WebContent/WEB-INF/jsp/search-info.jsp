@@ -26,10 +26,10 @@
 <body>
 	<h1>変更したい社員の情報入力</h1>
 	<div class="container">
-		<form action="change-i" method="POST" class="form-horizontal">
-			<div class="form-group">
+		<form action="change-i" method="post" class="form-horizontal">
+			<div class="form-group row">
 				<label>社員番号</label>
-				<input type="number" name="employeeid" />
+				<input type="number" name="employeeid" class="form-control" style="width:500px;"/>
 			</div>
 			<div class="form-group">
 				<input type="submit" value="検索" class="btn btn-primary" />

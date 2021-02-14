@@ -4,16 +4,30 @@
 
 <html>
 <head>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
 <title>ログイン</title>
 </head>
 <body>
 	<h1>ログイン</h1>
 	<h3>${sessionScope.mes }</h3>
+	<div class="container">
 		<form action="login" method="post">
-			社員番号：<input type="text" name="employeeid"/><br>
-			パスワード：<input type="text" name="pass"/><br><br>
-			<input type="submit" value="ログイン">
+			<div class="form-group row">
+				<label>社員番号</label><input type="text" name="employeeid" class="form-control" style="width:500px;"/>
+			</div>
+			<div class="form-group row">
+				<label>パスワード</label><input type="text" name="pass" class="form-control" style="width:500px;"/>
+			</div>
+			<br>
+			<div class="form-group">
+				<input type="submit" value="ログイン" class="btn btn-primary" />
+			</div>
 		</form>
+	</div>
 </body>
 </html>
 

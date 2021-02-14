@@ -5,9 +5,10 @@
 <html>
 <head>
 <!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
 <head>
 <meta charset="UTF-8">
@@ -26,20 +27,22 @@
 	<h1>パスワード変更</h1>
 	<div class="container">
 		<form action="change-pr">
-			<div class="form-group">
+			<div class="form-group row">
 				<label>社員番号</label> <input type="text" name="id"
-					value=${sessionScope.uid } readonly />
+					value=${sessionScope.uid } class="form-control" style="width:500px;" readonly />
 			</div>
-			<div class="form-group">
-				<label>新しいパスワード</label> <input type="password" name="pass" />
+			<div class="form-group row">
+				<label>新しいパスワード</label> <input type="password" name="pass" class="form-control" style="width:500px;" />
 			</div>
-			<div class="form-group">
-				<label>パスワード確認用</label> <input type="password" name="passc" />
+			<div class="form-group row">
+				<label>パスワード確認用</label> <input type="password" name="passc" class="form-control" style="width:500px;" />
 			</div>
+			<br>
 			<div class="form-group">
-				<input type="submit" value="変更" />
+				<input type="submit" value="変更"  class="btn btn-primary"/>
 			</div>
 		</form>
+	</div>
 		<div id="top"></div>
 		<br>
 		<div id="logout"></div>

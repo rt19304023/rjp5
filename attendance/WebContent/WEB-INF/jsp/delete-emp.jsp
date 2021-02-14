@@ -5,9 +5,10 @@
 <html>
 <head>
 <!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>社員の削除</title>
@@ -25,11 +26,12 @@
 	<h1>社員情報削除</h1>
 	<div class="container">
 		<form action="delete-er" method="post" class="form-horizontal">
-			<div class="form-group">
+			<div class="form-group row">
 				<label>社員番号</label>
 				<input type="number" name="employeeid"
-					maxlength="7" />
+					maxlength="7" class="form-control" style="width:300px;"/>
 			</div>
+			<br>
 			<div class="form-group">
 				<input type="submit" value="削除" class="btn btn-primary">
 			</div>

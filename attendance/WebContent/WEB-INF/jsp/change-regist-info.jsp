@@ -5,9 +5,10 @@
 <html>
 <head>
 <!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
 
 <meta charset="UTF-8">
@@ -27,20 +28,22 @@
 	<div class="container">
 		<c:forEach var="user" items="${result}">
 			<form action="change-ir" method="post">
-				<div class="form-group">
+				<div class="form-group row">
 					<label>社員番号</label>
-					<input type="text" name="employeeid" value=${user.employeeId } readonly />
+					<input type="text" name="employeeid" value=${user.employeeId } class="form-control" style="width:500px;" readonly />
 				</div>
-				<div class="form-group">
+				<div class="form-group row">
 					<label>社員名</label>
-					<input type="text" name="name" value=${user.name }>
+					<input type="text" name="name" value=${user.name } class="form-control" style="width:500px;" />
 				</div>
-				<div class="form-group">
-					<label>カードID</label><input type="text" name="cardnumber" value=${user.cardNumber }>
+				<div class="form-group row">
+					<label>カードID</label>
+					<input type="text" name="cardnumber" value=${user.cardNumber } class="form-control" style="width:500px;" />
 				</div>
-				<div class="form-group">
+				<div class="form-group row">
 					<label>部署コード</label>
-					<input type="text" name="depertmentcode" value=${user.departmentCode }>
+					<input type="number" name="depertmentcode" value=${user.departmentCode } maxlength="4" min="1" max="12"
+					class="form-control" style="width:80px;" />
 				</div>
 				<input type="submit" value="更新" class="btn btn-primary" />
 			</form>
