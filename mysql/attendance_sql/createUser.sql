@@ -1,8 +1,5 @@
 
-CREATE user attendance
-	IDENTIFIED BY attendance
-;
-
-GRANT CONNECT,RESOURCE,CREATE VIEW TO attendance;
-
-ALTER USER attendance quota unlimited ON USERS;
+CREATE DATABASE rjp CHARACTER SET utf8;
+CREATE USER attendance IDENTIFIED BY 'attendance';
+GRANT ALL ON *.* to attendance;
+commit;
