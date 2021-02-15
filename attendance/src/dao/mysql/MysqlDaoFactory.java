@@ -23,73 +23,73 @@ public class MysqlDaoFactory extends AbstractDaoFactory {
 	@Override
 	public LoginDao getLoginDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlLoginDao();
 	}
 
 	@Override
 	public RegistEmployeeDao getRegistEmployeeDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlRegistEmployeeDao();
 	}
 
 	@Override
 	public DeleteEmployeeDao getDeleteEmployeeDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlDeleteEmployeeDao();
 	}
 
 	@Override
 	public FixWorkingHoursDao getFixWorkingHoursDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlFixWorkingHoursDao();
 	}
 
 	@Override
 	public OutputEmployeeInformationDao getOutputEmployeeInformationDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlOutputEmployeeInformationDao();
 	}
 
 	@Override
 	public SearchDepartmentWorkingHoursDao getSearchDepartmentWorkingHoursDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlSearchDepartmentWorkingHoursDao();
 	}
 
 	@Override
 	public ChangeRegistInformationDao getChangeRegistInformationDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlChangeRegistInformationDao();
 	}
 
 	@Override
 	public ChangePasswordDao getChangePasswordDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlChangePasswordDao();
 	}
 
 	@Override
 	public SearchWorkingHoursDao getSearchWorkingHoursDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlSearchWorkingHoursDao();
 	}
 
 	@Override
 	public RegistSecretDataDao getRegistSecretDataDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlRegistSecretDataDao();
 	}
 
 	@Override
 	public ReferSecretDataDao getReferSecretDataDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlReferSecretDataDao();
 	}
 
 	@Override
 	public SearchModifyHoursDao getSearchModifyHoursDao() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new MysqlSearchModifyHoursDao();
 	}
 
 }
