@@ -5,7 +5,7 @@ import connector.ReadDBInformation;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
-import dao.OraSearchWorkingHoursDao;
+import dao.oracle.OraSearchWorkingHoursDao;
 import jsp.ReadPagePath;
 
 public class SearchWorkingHoursCommand extends AbstractCommand {
