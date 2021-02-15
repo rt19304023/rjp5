@@ -91,7 +91,7 @@ AS
 
 CREATE OR REPLACE VIEW login_select
 AS
-	SELECT employee_list.employeeid as employeeid,employee_list.name as name,
+	SELECT employee_list.employeeid as employeeid,employee_list.name as name, pass,
 	department.code as department_code, department.name as department_name,secret_code
 	FROM employee_list JOIN department
 	ON employee_list.department_code = department.code
