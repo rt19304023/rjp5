@@ -1,2 +1,4 @@
 
-DROP USER attendance CASCADE;
+DROP USER attendance;
+
+DROP DATABASE attendance;
