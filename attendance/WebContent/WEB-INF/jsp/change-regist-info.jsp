@@ -25,25 +25,27 @@
 </head>
 <body>
 	<h1>社員情報変更</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<div class="container">
 		<c:forEach var="user" items="${result}">
 			<form action="change-ir" method="post">
 				<div class="form-group row">
 					<label>社員番号</label>
-					<input type="text" name="employeeid" value=${user.employeeId } class="form-control" style="width:500px;" readonly />
+					<input type="number" name="employeeid" value=${user.employeeId } min="1000" maxlength="7" class="form-control" style="width:500px;" readonly />
 				</div>
 				<div class="form-group row">
 					<label>社員名</label>
-					<input type="text" name="name" value=${user.name } class="form-control" style="width:500px;" />
+					<input type="text" name="name" value=${user.name } class="form-control" style="width:500px;" required />
 				</div>
 				<div class="form-group row">
 					<label>カードID</label>
-					<input type="text" name="cardnumber" value=${user.cardNumber } class="form-control" style="width:500px;" />
+					<input type="number" name="cardnumber" value=${user.cardNumber } maxlength="20" class="form-control" style="width:500px;" required />
 				</div>
 				<div class="form-group row">
 					<label>部署コード</label>
 					<input type="number" name="depertmentcode" value=${user.departmentCode } maxlength="4" min="1" max="12"
-					class="form-control" style="width:80px;" />
+					class="form-control" style="width:80px;" required />
 				</div>
 				<input type="submit" value="更新" class="btn btn-primary" />
 			</form>

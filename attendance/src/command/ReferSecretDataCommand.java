@@ -27,7 +27,7 @@ public class ReferSecretDataCommand extends AbstractCommand {
 		RequestContext req = getRequestContext();
 
 		String employeeId = req.getParameter("id")[0];
-		String birthday = req.getParameter("year")[0] + "-" +req.getParameter("month")[0] +"-" +req.getParameter("day")[0];
+		String birthday = req.getParameter("birthday")[0];
 		String secretProblem = req.getParameter("problem")[0];
 		String secretAnswer = req.getParameter("answer")[0];
 		System.out.println(birthday);

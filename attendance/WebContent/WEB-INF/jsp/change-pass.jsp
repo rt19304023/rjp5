@@ -26,16 +26,16 @@
 <body>
 	<h1>パスワード変更</h1>
 	<div class="container">
-		<form action="change-pr">
+		<form action="change-pr" method="post">
 			<div class="form-group row">
 				<label>社員番号</label> <input type="text" name="id"
 					value=${sessionScope.uid } class="form-control" style="width:500px;" readonly />
 			</div>
 			<div class="form-group row">
-				<label>新しいパスワード</label> <input type="password" name="pass" class="form-control" style="width:500px;" />
+				<label>新しいパスワード</label> <input type="password" name="pass" class="form-control" style="width:500px;" required />
 			</div>
 			<div class="form-group row">
-				<label>パスワード確認用</label> <input type="password" name="passc" class="form-control" style="width:500px;" />
+				<label>パスワード確認用</label> <input type="password" name="passc" class="form-control" style="width:500px;" required />
 			</div>
 			<br>
 			<div class="form-group">

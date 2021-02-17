@@ -20,6 +20,8 @@
 </head>
 <body>
 	<h1>社員の削除が完了しました</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<table border="1" class="table table-striped">
 		<tr><th>社員番号</th><th>氏名</th></tr>
 		<c:forEach var="user" items="${result}">

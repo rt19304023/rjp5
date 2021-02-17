@@ -23,19 +23,21 @@
 </head>
 <body>
 	<h1>社員新規登録</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<div class="container">
 		<form action="regist-er" method="post">
 			<div class="form-group row">
 				<label>社員名 </label> <input type="text" name="name"
-					class="form-control" style="width:500px;"/>
+					class="form-control" style="width:500px;" required />
 			</div>
 			<div class="form-group row">
-				<label>カード番号</label> <input type="text" name="cardnumber"
-					class="form-control" style="width:500px;" />
+				<label>カード番号</label> <input type="number" name="cardnumber"
+					class="form-control" style="width:500px;" maxlength="20" required />
 			</div>
 			<div class="form-group row">
 				<label>部署コード</label> <input type="number" name="departmentcode"
-					maxlength="4" min="1" max="12" class="form-control" style="width:80px;" />
+					maxlength="4" min="1" max="12" class="form-control" style="width:80px;" required />
 			</div>
 			<br>
 			<div class="form-group">

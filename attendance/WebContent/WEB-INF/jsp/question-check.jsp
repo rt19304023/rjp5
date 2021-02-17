@@ -22,27 +22,34 @@
 </head>
 <body>
 	<h1>秘密の質問を入力</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<h3>${sessionScope.mes}</h3>
 	<h3>${sessionScope.secret}</h3>
 	<div class="container">
-		<form action="change-p" class="form-horizontal">
+		<form action="change-p" class="form-horizontal" method="post">
 			<div class="form-group row">
 				<label>社員番号</label>
 				<input type="text" name="id" value=${sessionScope.uid } class="form-control" style="width:500px;" readonly />
 			</div>
 			<div class="form-group row">
 				<label>誕生日</label>
-				<input type="text" style="width:100px;"name="year" class="form-control" style="width:500px;"/>
-				<input type="text" style="width:100px;"name="month" class="form-control" style="width:500px;"/>
-				<input type="text" style="width:100px;"name="day" class="form-control" style="width:500px;"/>
+				<input type="date" name="birthday" class="form-control" style="width:500px;" required />
 			</div>
 			<div class="form-group row">
 				<label>秘密の質問</label>
-				<input type="text" name="problem" class="form-control" style="width:500px;"/>
+				<select name="problem"class="form-control" style="width:500px;">
+				<option value="出身地">出身地</option>
+				<option value="ペットの名前">ペットの名前</option>
+				<option value="好きなアイドル">好きなアイドル</option>
+				<option value="好きな映画">好きな映画</option>
+				<option value="座右の銘">座右の銘</option>
+				<option value="テスト問題">テスト問題</option>
+				</select>
 			</div>
 			<div class="form-group row">
 				<label>回答</label>
-				<input type="text" name="answer" class="form-control" style="width:500px;"/>
+				<input type="text" name="answer" class="form-control" style="width:500px;" required />
 			</div>
 			<br>
 			<div class="form-group">

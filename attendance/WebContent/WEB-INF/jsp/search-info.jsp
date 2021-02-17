@@ -25,11 +25,13 @@
 </head>
 <body>
 	<h1>変更したい社員の情報入力</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<div class="container">
 		<form action="change-i" method="post" class="form-horizontal">
 			<div class="form-group row">
 				<label>社員番号</label>
-				<input type="number" name="employeeid" class="form-control" style="width:500px;"/>
+				<input type="number" name="employeeid" maxlength="7" min="1000" class="form-control" style="width:500px;" required />
 			</div>
 			<div class="form-group">
 				<input type="submit" value="検索" class="btn btn-primary" />

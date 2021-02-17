@@ -22,19 +22,21 @@
 </head>
 <body>
 	<h1>社員の時間を検索</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<div class="container">
 		<form action="modify" method="POST">
 			<div class="form-group row">
-				<label>社員番号</label><input type="text" name="employeeid"  class="form-control" style="width:500px;"/>
+				<label>社員番号</label><input type="text" name="employeeid"  class="form-control" style="width:500px;" required />
 			</div>
 			<div class="form-group row">
-				<label>年</label><input type="text" name="year" class="form-control" style="width:500px;" />
+				<label>年</label><input type="number" name="year" class="form-control" style="width:500px;" min="2010" maxlength="4" required />
 			</div>
 			<div class="form-group row">
-				<label>月</label><input type="text" name="month" class="form-control" style="width:500px;"/>
+				<label>月</label><input type="number" name="month" class="form-control" style="width:500px;" min="1" max="12" maxlength="2" required />
 			</div>
 			<div class="form-group row">
-				<label>日</label><input type="text" name="day" class="form-control" style="width:500px;"/>
+				<label>日</label><input type="number" name="day" class="form-control" style="width:500px;" min="1" max="31" maxlength="2" required />
 			</div>
 			<br>
 			<div class="form-group">

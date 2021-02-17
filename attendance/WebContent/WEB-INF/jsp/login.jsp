@@ -17,10 +17,10 @@
 	<div class="container">
 		<form action="login" method="post">
 			<div class="form-group row">
-				<label>社員番号</label><input type="text" name="employeeid" class="form-control" style="width:500px;"/>
+				<label>社員番号</label><input type="text" maxlength="7" min="1000" name="employeeid" class="form-control" style="width:500px;" required />
 			</div>
 			<div class="form-group row">
-				<label>パスワード</label><input type="text" name="pass" class="form-control" style="width:500px;"/>
+				<label>パスワード</label><input type="password" name="pass" class="form-control" style="width:500px;" required />
 			</div>
 			<br>
 			<div class="form-group">

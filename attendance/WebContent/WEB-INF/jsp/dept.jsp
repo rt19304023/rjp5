@@ -31,10 +31,14 @@
 	<h1>${sessionScope.dname }TOP画面</h1>
 		<p>社員番号: ${sessionScope.uid }
 		社員名: ${sessionScope.name }</p>
-	<p><a href="modify-i">勤務時間修正</a></p>
-	<p><a href="dept">勤務時間検索(部署)</a></p>
-	<p><a href="question-c">パスワード変更</a></p>
-	<p><a href="hours">勤務時間検索</a></p>
+		<div class="row">
+            <div class="col-md">
+                <a href="modify-i"><button type="button" class="btn btn-primary btn-lg btn-block">勤務時間修正</button></a>
+				<a href="dept"><button type="button" class="btn btn-default btn-lg btn-block">勤務時間検索(部署)</button></a>
+				<a href="question-c"><button type="button" class="btn btn-primary btn-lg btn-block">パスワード変更</button></a>
+				<a href="hours"><button type="button" class="btn btn-default btn-lg btn-block">勤務時間検索</button></a>
+            </div>
+        </div>
 	<div id="top"></div><br>
 	<div id="logout"></div>
 </body>

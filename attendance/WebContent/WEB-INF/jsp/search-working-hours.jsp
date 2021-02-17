@@ -25,6 +25,8 @@
 </head>
 <body>
 	<h1>勤務時間検索</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<div class="container">
 		<form action="search-hr" method="post">
 			<div class="form-group row">
@@ -32,7 +34,7 @@
 					value=${sessionScope.uid } class="form-control" style="width:500px;" readonly />
 			</div>
 			<div class="form-group row">
-				<label>検索する月</label> <input type="text" name="month" class="form-control" style="width:500px;"/>
+				<label>検索する月</label> <input type="text" name="month" maxlength="2" min="1" max="12" class="form-control" style="width:500px;" required />
 			</div>
 			<br>
 			<input type="submit" value="検索" class="btn btn-primary">

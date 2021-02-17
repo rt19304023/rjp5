@@ -5,7 +5,7 @@ import connector.ReadDBInformation;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
-import dao.oracle.OraSearchWorkingHoursDao;
+import dao.SearchWorkingHoursDao;
 import jsp.ReadPagePath;
 
 public class SearchWorkingHoursCommand extends AbstractCommand {
@@ -28,7 +28,7 @@ public class SearchWorkingHoursCommand extends AbstractCommand {
 		System.out.println("MONTH:" + req.getParameter("month")[0]);
 		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 
-		OraSearchWorkingHoursDao dao  = (OraSearchWorkingHoursDao)factory.getSearchWorkingHoursDao();
+		SearchWorkingHoursDao dao  = (SearchWorkingHoursDao)factory.getSearchWorkingHoursDao();
 
 		res.setResult(dao.workingHoursSearch(bean));
 

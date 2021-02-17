@@ -29,7 +29,7 @@ public class MysqlRegistSecretDataDao implements RegistSecretDataDao {
 
 		cn = connector.getConnection();
 
-		String sql = "INSERT INTO employee_secret VALUES(?,TO_DATE(?,'RRRR-MM-DD'),?,?)";
+		String sql = "INSERT INTO employee_secret VALUES(?,STR_TO_DATE(?,'%Y-%c-%d'),?,?)";
 
 		String sql2 = "UPDATE employee_list SET secret_code = 1 WHERE employeeid = ?";
 		try {

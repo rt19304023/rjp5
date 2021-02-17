@@ -24,12 +24,14 @@
 </head>
 <body>
 	<h1>社員情報削除</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<div class="container">
 		<form action="delete-er" method="post" class="form-horizontal">
 			<div class="form-group row">
 				<label>社員番号</label>
 				<input type="number" name="employeeid"
-					maxlength="7" class="form-control" style="width:300px;"/>
+					maxlength="7" class="form-control" style="width:300px;" required />
 			</div>
 			<br>
 			<div class="form-group">

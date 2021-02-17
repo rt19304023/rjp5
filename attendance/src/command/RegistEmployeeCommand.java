@@ -31,6 +31,7 @@ public class RegistEmployeeCommand extends AbstractCommand {
 
 		RegistEmployeeDao dao = (RegistEmployeeDao)factory.getRegistEmployeeDao();
 
+
 		res.setResult(dao.employeeRegist(bean));
 		res.setTarget(ReadPagePath.getPath(req.getCommandPath()));
 

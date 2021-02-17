@@ -25,13 +25,15 @@
 </head>
 <body>
 	<h1>社員情報検索</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<div class="container">
 		<div class="search">
 			<form name="empsearch" method="post" action="output-er"
 				onSubmit="return check()" class="form-horizontal">
 				<div class="form-group row">
 					<label>社員番号</label>
-					<input type="number" name="employeeid" maxlength="7" class="form-control" style="width:500px;"/>
+					<input type="number" name="employeeid" min="1000" maxlength="7" class="form-control" style="width:500px;" required />
 				</div>
 				<br>
 				<div class="form-group">

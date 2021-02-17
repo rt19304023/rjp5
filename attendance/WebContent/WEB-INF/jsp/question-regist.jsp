@@ -17,21 +17,31 @@
 </head>
 <body>
 	<h1>秘密の質問を登録</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<div class="container">
 		<form action="question-rr" method="post">
 			<div class="form-group">
-				<label>社員番号</label> <input type="text" name="id"
-					value=${sessionScope.uid } readonly />
+				<label>社員番号</label>
+				<input type="text" name="id"class="form-control" style="width:500px;" value=${sessionScope.uid } readonly />
 			</div>
 			<div class="form-group">
-				<label>誕生日</label> <input type="text" name="year" /> <input
-					type="text" name="month" /> <input type="text" name="day" />
+				<label>誕生日</label>
+				<input type="date" name="birthday" class="form-control" style="width:500px;" required />
 			</div>
 			<div class="form-group">
-				<label>秘密の質問</label> <input type="text" name="problem" />
+				<label>秘密の質問</label>
+				<select name="problem"class="form-control" style="width:500px;">
+				<option value="出身地">出身地</option>
+				<option value="ペットの名前">ペットの名前</option>
+				<option value="好きなアイドル">好きなアイドル</option>
+				<option value="好きな映画">好きな映画</option>
+				<option value="座右の銘">座右の銘</option>
+				<option value="テスト問題">テスト問題</option>
+				</select>
 			</div>
 			<div class="form-group">
-				<label>回答</label> <input type="text" name="answer" />
+				<label>回答</label> <input type="text" name="answer" class="form-control" style="width:500px;" required />
 			</div>
 			<input type="submit" value="登録" class="btn btn-primary"/>
 		</form>

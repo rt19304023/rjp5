@@ -29,8 +29,8 @@ public class MysqlFixWorkingHoursDao implements FixWorkingHoursDao {
 
 		cn = (Connection)connector.getConnection();
 
-		String sql = "UPDATE time_sheets SET attendance = TO_DATE(?,'HH24:MI'), goouttime = TO_DATE(?,'HH24:MI'), returntime = TO_DATE(?,'HH24:MI'),";
-		String sql2 = " leaveWork = TO_DATE(?,'HH24:MI') WHERE employeeid = ? AND work_day = TO_DATE(?,'RRRR-MM-DD')";
+		String sql = "UPDATE time_sheets SET attendance = STR_TO_DATE(?,'%H:%i'), goouttime = STR_TO_DATE(?,'%H:%i'), returntime = STR_TO_DATE(?,'%H:%i'),";
+		String sql2 = " leaveWork = STR_TO_DATE(?,'%H:%i') WHERE employeeid = ? AND work_day = STR_TO_DATE(?,'%Y-%c-%d')";
 
 		try {
 

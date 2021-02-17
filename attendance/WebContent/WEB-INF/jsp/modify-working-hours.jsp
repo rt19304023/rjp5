@@ -24,17 +24,19 @@
 </head>
 <body>
 	<h1>勤務時間修正</h1>
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
 	<div class="container">
 		<c:forEach var="user" items="${result }">
 			<p>変更日付：${user.date } </p>
 				<form action="fix-hr" method="POST">
 					<div class="form-group row">
 						<p>社員番号：<input type="text" name="employeeid" value= ${user.employeeId } class="form-control" style="width:500px;" readonly /></p>
-						<p>出勤日：<input type="text" name="date"  value= ${user.date } class="form-control" style="width:500px;" readonly /></p>
-						<p>出勤時：<input type="text" name="attendance" value= ${user.attendance } class="form-control" style="width:500px;"/></p>
-						<p>休憩入：<input type="text" name="goout" value= ${user.gooutTime } class="form-control" style="width:500px;"/></p>
-						<p>休憩明：<input type="text" name="returntime" value= ${user.returnTime } class="form-control" style="width:500px;"/></p>
-						<p>退勤時：<input type="text" name="leave" value= ${user.leaveWork } class="form-control" style="width:500px;"/></p>
+						<p>出勤日：<input type="text" name="date"  value= ${user.date } class="form-control" style="width:500px;" readonly  /></p>
+						<p>出勤時：<input type="time" name="attendance" value= ${user.attendance } class="form-control" style="width:500px;" required /></p>
+						<p>休憩入：<input type="time" name="goout" value= ${user.gooutTime } class="form-control" style="width:500px;" required /></p>
+						<p>休憩明：<input type="time" name="returntime" value= ${user.returnTime } class="form-control" style="width:500px;" required /></p>
+						<p>退勤時：<input type="time" name="leave" value= ${user.leaveWork } class="form-control" style="width:500px;" required /></p>
 						<input type="submit" value="検索" class="btn btn-primary" />
 					</div>
 			</form>

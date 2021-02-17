@@ -40,7 +40,7 @@ public class OraSearchDepartmentWorkingHoursDao implements SearchDepartmentWorki
 			st = cn.prepareStatement(sql);
 
 			st.setString(1, bean.getDepartmentCode());
-			st.setString(2, bean.getMonth());
+			st.setString(2, bean.getMonth().substring(2));
 
 			rs = st.executeQuery();
 

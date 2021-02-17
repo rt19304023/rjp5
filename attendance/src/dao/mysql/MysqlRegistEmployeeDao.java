@@ -33,8 +33,8 @@ public class MysqlRegistEmployeeDao implements RegistEmployeeDao {
 
 		cn = connector.getConnection();
 
-		String sql = "INSERT into employee_list(name,pass,cardid,department_code,employeeid)";
-		String sql2 = " values(?,?,?,?,employeeid.NEXTVAL)";
+		String sql = "INSERT into employee_list(name,pass,cardid,department_code)";
+		String sql2 = " values(?,?,?,?)";
 
 		String select = "SELECT * FROM employee_list WHERE cardid = ?";
 

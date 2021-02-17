@@ -24,7 +24,9 @@
 </head>
 <body>
 	<h1>勤務時間検索結果(部署)</h1>
-	<table border="1" class="btn btn-primary">
+	<p>社員番号: ${sessionScope.uid }
+		社員名: ${sessionScope.name }</p>
+	<table border="1" class="table table-striped">
 		<tr><th>部署番号</th>
 			<th>部署名</th>
 			<th>年-月</th>

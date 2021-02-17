@@ -23,7 +23,7 @@ public class SearchDepartmentWorkingHoursCommand extends AbstractCommand {
 		SearchDepartmentWorkingHoursBean bean = new SearchDepartmentWorkingHoursBean();
 
 		bean.setDepartmentCode(req.getParameter("departmentcode")[0]);
-		bean.setMonth((req.getParameter("year")[0] + "-" +req.getParameter("month")[0]).substring(2));
+		bean.setMonth((req.getParameter("year")[0] + "-" +req.getParameter("month")[0]));
 		System.out.println(bean.getMonth());
 		AbstractDaoFactory factory = (AbstractDaoFactory)AbstractDaoFactory.getFactory(ReadDBInformation.getDataBaseInfo("dbname"));
 
