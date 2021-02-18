@@ -22,6 +22,14 @@
 		$("#logout").load("out");
 	});
 </script>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 300%;
+		}
+	</style>
 </head>
 <body>
 	<h1>社員情報変更</h1>
@@ -32,20 +40,20 @@
 			<form action="change-ir" method="post">
 				<div class="form-group row">
 					<label>社員番号</label>
-					<input type="number" name="employeeid" value=${user.employeeId } min="1000" maxlength="7" class="form-control" style="width:500px;" readonly />
+					<input type="number" name="employeeid" value=${user.employeeId } min="1000" maxlength="7" class="form-control"  readonly />
 				</div>
 				<div class="form-group row">
 					<label>社員名</label>
-					<input type="text" name="name" value=${user.name } class="form-control" style="width:500px;" required />
+					<input type="text" name="name" value=${user.name } class="form-control" required />
 				</div>
 				<div class="form-group row">
 					<label>カードID</label>
-					<input type="number" name="cardnumber" value=${user.cardNumber } maxlength="20" class="form-control" style="width:500px;" required />
+					<input type="number" name="cardnumber" value=${user.cardNumber } maxlength="20" class="form-control"  required />
 				</div>
 				<div class="form-group row">
 					<label>部署コード</label>
 					<input type="number" name="depertmentcode" value=${user.departmentCode } maxlength="4" min="1" max="12"
-					class="form-control" style="width:80px;" required />
+					class="form-control" required />
 				</div>
 				<input type="submit" value="更新" class="btn btn-primary" />
 			</form>

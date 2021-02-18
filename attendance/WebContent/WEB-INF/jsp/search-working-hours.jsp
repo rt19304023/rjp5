@@ -22,6 +22,14 @@
 		$("#logout").load("out");
 	});
 </script>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<h1>勤務時間検索</h1>
@@ -31,10 +39,10 @@
 		<form action="search-hr" method="post">
 			<div class="form-group row">
 				<label>社員番号</label> <input type="text" name="employeeid"
-					value=${sessionScope.uid } class="form-control" style="width:500px;" readonly />
+					value=${sessionScope.uid } class="form-control" readonly />
 			</div>
 			<div class="form-group row">
-				<label>検索する月</label> <input type="text" name="month" maxlength="2" min="1" max="12" class="form-control" style="width:500px;" required />
+				<label>検索する月</label> <input type="text" name="month" maxlength="2" min="1" max="12" class="form-control" ssrequired />
 			</div>
 			<br>
 			<input type="submit" value="検索" class="btn btn-primary">

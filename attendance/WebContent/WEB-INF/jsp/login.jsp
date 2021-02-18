@@ -9,6 +9,14 @@
 	rel="stylesheet"
 	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 300%;
+		}
+	</style>
 <title>ログイン</title>
 </head>
 <body>
@@ -17,10 +25,10 @@
 	<div class="container">
 		<form action="login" method="post">
 			<div class="form-group row">
-				<label>社員番号</label><input type="text" maxlength="7" min="1000" name="employeeid" class="form-control" style="width:500px;" required />
+				<label>社員番号</label><input type="text" maxlength="7" min="1000" name="employeeid" class="form-control" required />
 			</div>
 			<div class="form-group row">
-				<label>パスワード</label><input type="password" name="pass" class="form-control" style="width:500px;" required />
+				<label>パスワード</label><input type="password" name="pass" class="form-control" required />
 			</div>
 			<br>
 			<div class="form-group">

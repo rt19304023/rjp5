@@ -14,6 +14,14 @@
 			$("#logout").load("out");
 		});
 	</script>
+		<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<h1>秘密の質問登録完了</h1>

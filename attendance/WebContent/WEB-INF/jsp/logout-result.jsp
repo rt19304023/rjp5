@@ -11,6 +11,14 @@
 			$("#welcom").load("welcom");
 		});
 	</script>
+		<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<h1> ログアウトしました。 </h1>

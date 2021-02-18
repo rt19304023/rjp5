@@ -22,6 +22,14 @@
 		$("#logout").load("out");
 	});
 </script>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<h1>変更したい社員の情報入力</h1>
@@ -31,7 +39,7 @@
 		<form action="change-i" method="post" class="form-horizontal">
 			<div class="form-group row">
 				<label>社員番号</label>
-				<input type="number" name="employeeid" maxlength="7" min="1000" class="form-control" style="width:500px;" required />
+				<input type="number" name="employeeid" maxlength="7" min="1000" class="form-control" required />
 			</div>
 			<div class="form-group">
 				<input type="submit" value="検索" class="btn btn-primary" />

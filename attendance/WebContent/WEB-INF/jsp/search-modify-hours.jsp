@@ -19,6 +19,14 @@
 		$("#logout").load("out");
 	});
 </script>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<h1>社員の時間を検索</h1>
@@ -27,16 +35,16 @@
 	<div class="container">
 		<form action="modify" method="POST">
 			<div class="form-group row">
-				<label>社員番号</label><input type="text" name="employeeid"  class="form-control" style="width:500px;" required />
+				<label>社員番号</label><input type="text" name="employeeid"  class="form-control" required />
 			</div>
 			<div class="form-group row">
-				<label>年</label><input type="number" name="year" class="form-control" style="width:500px;" min="2010" maxlength="4" required />
+				<label>年</label><input type="number" name="year" class="form-control" min="2010" maxlength="4" required />
 			</div>
 			<div class="form-group row">
-				<label>月</label><input type="number" name="month" class="form-control" style="width:500px;" min="1" max="12" maxlength="2" required />
+				<label>月</label><input type="number" name="month" class="form-control" min="1" max="12" maxlength="2" required />
 			</div>
 			<div class="form-group row">
-				<label>日</label><input type="number" name="day" class="form-control" style="width:500px;" min="1" max="31" maxlength="2" required />
+				<label>日</label><input type="number" name="day" class="form-control" min="1" max="31" maxlength="2" required />
 			</div>
 			<br>
 			<div class="form-group">

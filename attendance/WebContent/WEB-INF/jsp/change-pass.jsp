@@ -10,7 +10,6 @@
 	rel="stylesheet"
 	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
-<head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -22,6 +21,14 @@
 		$("#logout").load("out");
 	});
 </script>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 300%;
+		}
+	</style>
 </head>
 <body>
 	<h1>パスワード変更</h1>
@@ -29,13 +36,13 @@
 		<form action="change-pr" method="post">
 			<div class="form-group row">
 				<label>社員番号</label> <input type="text" name="id"
-					value=${sessionScope.uid } class="form-control" style="width:500px;" readonly />
+					value=${sessionScope.uid } class="form-control" readonly />
 			</div>
 			<div class="form-group row">
-				<label>新しいパスワード</label> <input type="password" name="pass" class="form-control" style="width:500px;" required />
+				<label>新しいパスワード</label> <input type="password" name="pass" class="form-control"  required />
 			</div>
 			<div class="form-group row">
-				<label>パスワード確認用</label> <input type="password" name="passc" class="form-control" style="width:500px;" required />
+				<label>パスワード確認用</label> <input type="password" name="passc" class="form-control"  required />
 			</div>
 			<br>
 			<div class="form-group">

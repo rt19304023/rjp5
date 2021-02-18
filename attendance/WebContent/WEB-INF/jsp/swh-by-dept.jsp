@@ -19,6 +19,14 @@
 		$("#logout").load("out");
 	});
 </script>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<h1>勤務時間検索(部署)</h1>
@@ -27,12 +35,12 @@
 	<div class="container">
 		<form method="post" action="search-dhr">
 			<div class="form-group row">
-				<label>部署コード</label><input type="text" name="departmentcode" class="form-control" style="width:500px;" required />
+				<label>部署コード</label><input type="text" name="departmentcode" class="form-control" required />
 			</div>
 			<div class="form-group row">
 				<label>検索年月</label><input type="number" name="year"
-			min="2020" maxlength="4"	class="form-control" style="width:250px;"/>
-				<input type="number" name="month" min="1" max="12" class="form-control" style="width:250px;" required />
+			min="2020" maxlength="4"	class="form-control" style="width:50%;"/>
+				<input type="number" name="month" min="1" max="12" class="form-control" style="width:50%;" required />
 			</div>
 			<br>
 			<input type="submit" value="検索" class="btn btn-primary"/>

@@ -21,6 +21,14 @@
 			$("#logout").load("out");
 		});
 	</script>
+		<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<h1>新規社員の登録が完了しました</h1>

@@ -22,6 +22,14 @@
 		$("#logout").load("out");
 	});
 </script>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<h1>社員情報検索</h1>
@@ -33,7 +41,7 @@
 				onSubmit="return check()" class="form-horizontal">
 				<div class="form-group row">
 					<label>社員番号</label>
-					<input type="number" name="employeeid" min="1000" maxlength="7" class="form-control" style="width:500px;" required />
+					<input type="number" name="employeeid" min="1000" maxlength="7" class="form-control" required />
 				</div>
 				<br>
 				<div class="form-group">

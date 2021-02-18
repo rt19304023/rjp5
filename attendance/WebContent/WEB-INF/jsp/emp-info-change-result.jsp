@@ -18,6 +18,14 @@
 			$("#logout").load("out");
 		});
 	</script>
+		<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 		<h1>社員情報変更完了</h1>

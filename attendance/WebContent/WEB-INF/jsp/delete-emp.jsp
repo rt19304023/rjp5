@@ -21,6 +21,14 @@
 		$("#logout").load("out");
 	});
 </script>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 300%;
+		}
+	</style>
 </head>
 <body>
 	<h1>社員情報削除</h1>
@@ -31,7 +39,7 @@
 			<div class="form-group row">
 				<label>社員番号</label>
 				<input type="number" name="employeeid"
-					maxlength="7" class="form-control" style="width:300px;" required />
+					maxlength="7" class="form-control" required />
 			</div>
 			<br>
 			<div class="form-group">

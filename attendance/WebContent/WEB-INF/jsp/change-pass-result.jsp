@@ -18,6 +18,14 @@
 			$("#logout").load("out");
 		});
 	</script>
+		<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 300%;
+		}
+	</style>
 </head>
 <body>
 	<h1>パスワード変更完了</h1>

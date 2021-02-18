@@ -4,6 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<form method="post" name="trans" action="trans-tt">

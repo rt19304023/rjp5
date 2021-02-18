@@ -20,6 +20,14 @@
 		$("#logout").load("out");
 	});
 </script>
+	<style>
+		*{
+			text-align: center;
+		}
+		p{
+			font-size: 350%;
+		}
+	</style>
 </head>
 <body>
 	<h1>社員新規登録</h1>
@@ -29,15 +37,15 @@
 		<form action="regist-er" method="post">
 			<div class="form-group row">
 				<label>社員名 </label> <input type="text" name="name"
-					class="form-control" style="width:500px;" required />
+					class="form-control" required />
 			</div>
 			<div class="form-group row">
 				<label>カード番号</label> <input type="number" name="cardnumber"
-					class="form-control" style="width:500px;" maxlength="20" required />
+					class="form-control" maxlength="20" required />
 			</div>
 			<div class="form-group row">
 				<label>部署コード</label> <input type="number" name="departmentcode"
-					maxlength="4" min="1" max="12" class="form-control" style="width:80px;" required />
+					maxlength="4" min="1" max="12" class="form-control" required />
 			</div>
 			<br>
 			<div class="form-group">
